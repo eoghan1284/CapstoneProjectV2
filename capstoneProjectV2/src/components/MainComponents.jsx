@@ -7,7 +7,6 @@ import React, { useState } from 'react';
 import '../styles/App.css';
 
 const MainComponents = () => {
-    console.log("maincomponents");
     return <div id='testDiv'>
                 <p>testDiv</p>
             </div>

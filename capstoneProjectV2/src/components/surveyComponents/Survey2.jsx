@@ -1,15 +1,25 @@
 import React from 'react';
 import './Survey.css'; // Adjust the path as needed for your project structure
 
-function Survey2(props) {
-  // Component logic goes here
-  // You can use props to pass data into the component, if needed
+function Survey2({ onNext }) {
+  
+  const handleNextClick = () => {
+    onNext();
+  };
 
   return (
-    <div id="testDiv">
-      survey1
+    <div id="survey2Div_test">
+      <h1>Survey 2</h1>
+      {/* Include your survey questions here */}
+      <button onClick={handleNextClick}>Next</button>
     </div>
   );
 }
 
 export default Survey2;
+
+
+
+
+
+

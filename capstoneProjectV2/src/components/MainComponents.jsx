@@ -7,11 +7,36 @@ import Game from './gameComponents/Game.jsx';
 import '../styles/App.css';
 
 const MainComponents = () => {
-  //const [currentStep, setCurrentStep] = useState('Welcome');
-  // ... rest of your state and handlers
+  const [currentStep, setCurrentStep] = useState('Welcome');
 
-  // ... rest of your component with conditional rendering
-  return Welcome;
+  // Handler to move to the next step
+  const handleNext = (nextStep) => {
+    setCurrentStep(nextStep);
+  };
+
+  // Determine which component to render based on the current step
+  const renderStep = () => {
+    switch (currentStep) {
+      case 'Welcome':
+        return <Welcome onStart={() => handleNext('Survey1')} />;
+      case 'Survey1':
+        return <Survey1 onNext={() => handleNext('Survey2')} />;
+      case 'Survey2':
+        return <Survey2 onNext={() => handleNext('Survey3')} />;
+      case 'Survey3':
+        return <Survey3 onNext={() => handleNext('Game')} />;
+      case 'Game':
+        return <Game onGameEnd={() => handleNext('Welcome')} />;
+      default:
+        return <div>Invalid step</div>;
+    }
+  };
+
+  return (
+    <div className="main-components">
+      {renderStep()}
+    </div>
+  );
 };
 
 export default MainComponents;

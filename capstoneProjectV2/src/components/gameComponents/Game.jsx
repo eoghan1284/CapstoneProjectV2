@@ -1,15 +1,19 @@
 import React from 'react';
 import './styles/Game.css'; 
 
-function MyComponent(props) {
-  // Component logic goes here
-  // You can use props to pass data into the component, if needed
+function Game( {onGameEnd} ) {
+
+  const handleGameEnd = () => {
+    onGameEnd();
+  };
 
   return (
     <div id="testDiv">
-      This is a basic React component
+      <h1>Game</h1>
+      {}
+      <button onClick={handleGameEnd}>Next</button>
     </div>
   );
 }
 
-export default MyComponent;
+export default Game;

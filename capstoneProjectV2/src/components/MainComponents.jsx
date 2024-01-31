@@ -4,6 +4,7 @@ import Survey1 from './surveyComponents/Survey1.jsx';
 import Survey2 from './surveyComponents/Survey2.jsx';       
 import Survey3 from './surveyComponents/Survey3.jsx'; 
 import Game from './gameComponents/Game.jsx';
+import Finish from './finish/Finish.jsx';
 import '../styles/App.css';
 
 const MainComponents = () => {
@@ -26,7 +27,9 @@ const MainComponents = () => {
       case 'Survey3':
         return <Survey3 onNext={() => handleNext('Game')} />;
       case 'Game':
-        return <Game onGameEnd={() => handleNext('Welcome')} />;
+        return <Game onGameEnd={() => handleNext('Finish')} />;
+      case 'Finish':
+        return <Finish/>;
       default:
         return <div>Invalid step</div>;
     }

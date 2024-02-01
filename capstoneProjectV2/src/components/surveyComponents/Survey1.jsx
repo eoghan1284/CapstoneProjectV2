@@ -1,6 +1,6 @@
 import React from 'react';
 import './Survey.css'; 
-import SurveyQuestion from './SurveyQuestion.jsx';
+import {SurveyQuestionV1} from './SurveyQuestion.jsx';
 
 function Survey1({ onNext }) { 
   // Component logic goes here
@@ -18,13 +18,13 @@ function Survey1({ onNext }) {
           <h2>Survey (1/3)</h2>
         </div>
         <div className='InputDiv'>
-          <SurveyQuestion question = "Feeling nervous, anxious, or on edge"/>
-          <SurveyQuestion question = "Not being able to stop or control worrying"/>
-          <SurveyQuestion question = "Worrying too much about different things"/>
-          <SurveyQuestion question= 'Trouble relaxing'/>
-          <SurveyQuestion question= 'Being so restless that it is hard to sit still'/>
-          <SurveyQuestion question= 'Becoming easily annoyed or irritable'/>
-          <SurveyQuestion question= 'Feeling afraid as if something awful might happen'/>
+          <SurveyQuestionV1 question = "Feeling nervous, anxious, or on edge"/>
+          <SurveyQuestionV1 question = "Not being able to stop or control worrying"/>
+          <SurveyQuestionV1 question = "Worrying too much about different things"/>
+          <SurveyQuestionV1 question= 'Trouble relaxing'/>
+          <SurveyQuestionV1 question= 'Being so restless that it is hard to sit still'/>
+          <SurveyQuestionV1 question= 'Becoming easily annoyed or irritable'/>
+          <SurveyQuestionV1 question= 'Feeling afraid as if something awful might happen'/>
           <div className='ButtonDiv'>
             <button onClick={handleNextClick}>Next</button>
           </div>

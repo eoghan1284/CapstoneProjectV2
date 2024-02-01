@@ -1,5 +1,6 @@
 import React from 'react';
 import './Survey.css'; 
+import SurveyQuestion from './SurveyQuestion.jsx';
 
 function Survey1({ onNext }) { 
   // Component logic goes here
@@ -11,9 +12,13 @@ function Survey1({ onNext }) {
   };
 
   return (
-    <div id="survey1Div_test">
-      <h1>Survey 1</h1>
-      {/* Include your survey questions here */}
+    <div className='Container'>
+      <div className='TitleDiv'>
+        <h2>Title</h2>
+      </div>
+      <div className='inputDiv'>
+        <SurveyQuestion text = "good"/>
+      </div>
       <button onClick={handleNextClick}>Next</button>
     </div>
   );

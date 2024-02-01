@@ -1,11 +1,13 @@
-#survey1Div_test h1{
-    color: yellow;
-}
+/*General*/
 
+/*Survey 1 spceific*/
+
+/*Survey 2 spceific*/
 #survey2Div_test h1{
     color: green;
 }
 
+/*Survey 3 spceific*/
 #survey3Div_test h1{
     color: blue;
 }

@@ -13,7 +13,6 @@ const Welcome = ({ onStart }) => (
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
-
           <button onClick={onStart}>Start</button>
         </div>
       </div>

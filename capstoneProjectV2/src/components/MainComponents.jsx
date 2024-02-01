@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Welcome from './welcome/Welcome.jsx';
 import Survey1 from './surveyComponents/Survey1.jsx';        
 import Survey2 from './surveyComponents/Survey2.jsx';       
@@ -9,6 +9,13 @@ import '../styles/App.css';
 
 const MainComponents = () => {
   const [currentStep, setCurrentStep] = useState('Welcome');
+
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  }, [currentStep]);  // This will trigger the scroll every time currentStep changes.
 
   // Handler to move to the next step
   const handleNext = (nextStep) => {

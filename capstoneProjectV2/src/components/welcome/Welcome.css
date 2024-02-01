@@ -1,6 +1,6 @@
 #page {
   height: 100vh;
-  background-color: rgb(175, 175, 175);
+  background-color: var(--background-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -8,7 +8,7 @@
 }
 
 #titleDiv {
-  background-color:purple;
+  background-color:var(--accent-color);
   text-align: center;
   padding: 1rem 0rem; /*0 rem for width padding as width will automaticaly be the max of all the divs in the container*/
 }
@@ -22,14 +22,14 @@
 }
 
 #inputDiv input {
-    background-color: rgb(227, 223, 223);
+    background-color: var(--inputBackground-color);
     color: black;
     margin-bottom: 1rem;
     border-radius: 0;
 }
 
 #inputDiv select {
-  background-color: rgb(227, 223, 223);
+  background-color: var(--inputBackground-color);
   padding: 0.35rem;
   margin-bottom: 1rem;
   width: 100%;
@@ -39,7 +39,7 @@
 
 #inputDiv button {
     align-self: center; /*stops button growing to full width */
-    background-color: purple;
+    background-color: var(--accent-color);
     padding: .5rem 1rem;
     border: none;
     border-radius: 0;

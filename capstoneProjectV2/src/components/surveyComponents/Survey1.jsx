@@ -12,14 +12,20 @@ function Survey1({ onNext }) {
   };
 
   return (
-    <div className='Container'>
-      <div className='TitleDiv'>
-        <h2>Title</h2>
+    <div className='page'>
+      <div className='Container'>
+        <div className='TitleDiv'>
+          <h2>Title</h2>
+        </div>
+        <div className='InputDiv'>
+          <SurveyQuestion question = "Question1 text?"/>
+          <SurveyQuestion question = "Question2 text?"/>
+          <SurveyQuestion question = "Question3 text?"/>
+        </div>
+        <div className='ButtonDiv'>
+          <button onClick={handleNextClick}>Next</button>
+        </div>
       </div>
-      <div className='inputDiv'>
-        <SurveyQuestion text = "good"/>
-      </div>
-      <button onClick={handleNextClick}>Next</button>
     </div>
   );
 }

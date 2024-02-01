@@ -1,4 +1,21 @@
 /*General*/
+.Container{
+   display: flex;
+   flex-direction: column;
+   align-items: center; /*stops elements's widths growing to fill*/
+}
+
+.TitleDiv{
+    background-color: red;
+}
+
+.InputDiv{
+    background-color: aqua;
+}
+
+.ButtonDiv{
+    
+}
 
 /*Survey 1 spceific*/
 

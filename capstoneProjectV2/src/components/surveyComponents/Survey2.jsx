@@ -8,6 +8,8 @@ function Survey2({ onNext }) {
     onNext();
   };
 
+  //below questions are from PHQ-9
+  //https://www.apa.org/depression-guideline/patient-health-questionnaire.pdf
   return (
     <div className='page'>
       <div className='Container'>

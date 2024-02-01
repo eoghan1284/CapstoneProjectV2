@@ -1,5 +1,7 @@
 import React from 'react';
 import './styles/Game.css'; 
+import backgroundImage from './/gameAssets/BackgroundV1.png';
+
 
 function Game( {onGameEnd} ) {
 
@@ -8,15 +10,11 @@ function Game( {onGameEnd} ) {
   };
 
   return (
-    <div>
-      <div id='testDiv'>
-        
-      </div>
+    <div id='gameContainer'>
+      <img src={backgroundImage} alt="Background" id="backgroundImage"/>
       <button onClick={handleGameEnd}>Next</button>
     </div>
   );
 }
 
 export default Game;
-
-

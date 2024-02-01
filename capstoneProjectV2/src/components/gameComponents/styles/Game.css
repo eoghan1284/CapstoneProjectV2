@@ -1,4 +1,14 @@
-#testDiv{
-    height: 50vh;
-    background-image: url('../gameAssets/BackgroundV1.png')
-}
+#gameContainer {
+    position: relative;
+    height: 100vh; /* Adjust the height as needed */
+    width: 100%; /* Adjust the width as needed */
+  }
+  
+  #backgroundImage {
+    width: 100%;
+    height: 100%; /* This will make the image cover the entire container */
+    object-fit: cover; /* This will make sure the image covers the div without being stretched */
+    position: absolute;
+    z-index: -1; /* This will ensure that the image stays in the background */
+  }
+  

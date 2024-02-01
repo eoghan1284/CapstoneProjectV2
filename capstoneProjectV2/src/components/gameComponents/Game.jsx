@@ -8,12 +8,15 @@ function Game( {onGameEnd} ) {
   };
 
   return (
-    <div id="testDiv">
-      <h1>Game</h1>
-      {}
+    <div>
+      <div id='testDiv'>
+        
+      </div>
       <button onClick={handleGameEnd}>Next</button>
     </div>
   );
 }
 
 export default Game;
+
+

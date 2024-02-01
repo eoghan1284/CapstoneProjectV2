@@ -1,3 +1,4 @@
-#testDiv h1{
-    color: red;
+#testDiv{
+    height: 50vh;
+    background-image: url('../gameAssets/BackgroundV1.png')
 }

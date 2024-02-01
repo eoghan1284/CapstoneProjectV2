@@ -15,15 +15,19 @@ function Survey1({ onNext }) {
     <div className='page'>
       <div className='Container'>
         <div className='TitleDiv'>
-          <h2>Title</h2>
+          <h2>Survey (1/3)</h2>
         </div>
         <div className='InputDiv'>
-          <SurveyQuestion question = "Question1 text?"/>
-          <SurveyQuestion question = "Question2 text?"/>
-          <SurveyQuestion question = "Question3 text?"/>
-        </div>
-        <div className='ButtonDiv'>
-          <button onClick={handleNextClick}>Next</button>
+          <SurveyQuestion question = "Feeling nervous, anxious, or on edge"/>
+          <SurveyQuestion question = "Not being able to stop or control worrying"/>
+          <SurveyQuestion question = "Worrying too much about different things"/>
+          <SurveyQuestion question= 'Trouble relaxing'/>
+          <SurveyQuestion question= 'Being so restless that it is hard to sit still'/>
+          <SurveyQuestion question= 'Becoming easily annoyed or irritable'/>
+          <SurveyQuestion question= 'Feeling afraid as if something awful might happen'/>
+          <div className='ButtonDiv'>
+            <button onClick={handleNextClick}>Next</button>
+          </div>
         </div>
       </div>
     </div>

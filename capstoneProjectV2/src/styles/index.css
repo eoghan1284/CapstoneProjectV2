@@ -9,7 +9,7 @@ body, h1, h2, h3, p {
   --text-color: white; 
   --text-color-secondary: black; 
   --accent-color: purple;
-  --element-color: #0d6efd;
+  --highlight-color: #0d6efd;
   --background-color: rgb(175, 175, 175);
   --inputBackground-color: rgb(227, 223, 223);
 }
@@ -30,14 +30,14 @@ a:hover {
 }
 
 button, input, textarea {
-  background-color: var(--element-color);
+  background-color: var(--accent-color);
   color: var(--text-color);
   border: none;
   padding: 0.5em 1em;
 }
 
 button:hover, input[type="submit"]:hover {
-  background-color: var(--accent-color);
+  background-color: var(--highlight-color);
 }
 
 /* Responsive images */

@@ -3,7 +3,7 @@ import './SurveyQuestion.css';
 
 const SurveyQuestion = ({ question }) => {
     return (
-      <div className="question-container">
+      <div className="questionContainer">
         <label className='questionLabel' htmlFor="rating">{ question }</label>
         <select id="rating" name="rating">
           <option value="0">0:Not at all sure</option>

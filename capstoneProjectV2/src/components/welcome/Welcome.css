@@ -1,4 +1,46 @@
-#Welcome_testDiv h1 {
-    color: red
-  }
-  
+#page {
+  height: 100vh;
+  background-color: rgb(175, 175, 175);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#titleDiv {
+  background-color:purple;
+  text-align: center;
+  padding: 1rem 0rem; /*0 rem for width padding as width will automaticaly be the max of all the divs in the container*/
+}
+
+#inputDiv {
+  background-color:whitesmoke;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+#inputDiv input {
+    background-color: rgb(227, 223, 223);
+    color: black;
+    margin-bottom: 1rem;
+    border-radius: 0;
+}
+
+#inputDiv select {
+  background-color: rgb(227, 223, 223);
+  padding: 0.35rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  border: none;
+  margin-bottom: 1rem;
+}
+
+#inputDiv button {
+    align-self: center; /*stops button growing to full width */
+    background-color: purple;
+    padding: .5rem 1rem;
+    border: none;
+    border-radius: 0;
+}

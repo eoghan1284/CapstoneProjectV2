@@ -15,14 +15,12 @@ const MainComponents = () => {
       top: 0,
       behavior: 'smooth',
     });
-  }, [currentStep]);  // This will trigger the scroll every time currentStep changes.
+  }, [currentStep]);  //trigger scroll to top every time currentStep changes.
 
-  // Handler to move to the next step
   const handleNext = (nextStep) => {
     setCurrentStep(nextStep);
   };
 
-  // Determine which component to render based on the current step
   const renderStep = () => {
     switch (currentStep) {
       case 'Welcome':

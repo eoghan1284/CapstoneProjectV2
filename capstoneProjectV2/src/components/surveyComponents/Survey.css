@@ -1,11 +1,12 @@
 /*General*/
 .page {
+    min-height: 100vw;
     background-color: var(--background-color);
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-}
+    justify-content: center;
+  }
 
 .TitleDiv{
     background-color:var(--accent-color);

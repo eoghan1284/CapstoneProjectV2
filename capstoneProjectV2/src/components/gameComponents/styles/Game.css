@@ -1,11 +1,35 @@
-#gameContainer {
-  height: 100vh;
-  }
-  
-  #backgroundImage {
-    width: 100%;
-    height: auto; 
-    max-height: 80vh;
-    object-fit: cover; /* prevents image stretching */
-  }
-  
+/* ParentChildDivs.css */
+.parent {
+  margin: 0 auto;
+  width: 57vh;
+  height: 80vh;
+  position: relative; /* This allows absolute positioning relative to the parent */
+  background-color: red;
+  background-image: url('../gameAssets/BackgroundSave1_2.png');
+  background-size: cover;
+}
+
+.child {
+  width: 8vh;
+  height: 8vh;
+  position: absolute; /* Absolute positioning inside the parent div */
+}
+
+#child1 {
+  top: 0;
+  left: 0;
+  background-color: yellow;
+}
+
+#child2 {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Center the div on the exact position */
+  background-color: green;
+}
+
+#child3 {
+  bottom: 0;
+  right: 0;
+  background-color: blue;
+}

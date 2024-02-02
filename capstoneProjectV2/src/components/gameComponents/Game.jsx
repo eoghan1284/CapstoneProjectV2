@@ -10,14 +10,10 @@ function Game( {onGameEnd} ) {
   };
 
   return (
-    <div id='page'>
-      <div id='gameContainer'>
-        <img src={backgroundImage} alt="Background" id="backgroundImage"/>
-      </div>
-      <Cave></Cave>
-      <div id='HUD'>
-        <button onClick={handleGameEnd}>Next</button>
-      </div>
+    <div className="parent">
+      <div className="child" id="child1"></div>
+      <div className="child" id="child2"></div>
+      <div className="child" id="child3"></div>
     </div>
   );
 }

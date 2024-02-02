@@ -9,12 +9,16 @@ function Game( {onGameEnd} ) {
     onGameEnd();
   };
 
+  const handlePseudoCaveClick = () => {
+    console.log("pseudo cave clicked");
+};
+
   return (
-    <div className="parent">
-      <div className="child" id="child1"></div>
-      <div className="child" id="child2"></div>
-      <div className="child" id="child3"></div>
-    </div>
+      <div className="parent">
+        <div className="child" id="child1" onClick={handlePseudoCaveClick}></div>
+        <div className="child" id="child2" onClick={handlePseudoCaveClick}></div>
+        <div className="child" id="child3" onClick={handlePseudoCaveClick}></div>
+      </div>
   );
 }
 

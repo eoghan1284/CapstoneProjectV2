@@ -1,6 +1,6 @@
 import React from 'react';
 import './styles/Game.css'; 
-import backgroundImage from './/gameAssets/BackgroundV1.png';
+import backgroundImage from './gameAssets/BackgroundSave1_2.png';
 
 
 function Game( {onGameEnd} ) {

@@ -11,25 +11,25 @@
 
 .child {
   width: 8vh;
-  height: 8vh;
+  height: 12vh;
+  opacity: 0.5;
   position: absolute; /* Absolute positioning inside the parent div */
 }
 
 #child1 {
-  top: 0;
-  left: 0;
+  top: 70%;
+  left: 2%;
   background-color: yellow;
 }
 
 #child2 {
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Center the div on the exact position */
+  top: 52%;
+  left: 12%;
   background-color: green;
 }
 
 #child3 {
-  bottom: 0;
-  right: 0;
+  top: 58%;
+  left: 85%;
   background-color: blue;
 }

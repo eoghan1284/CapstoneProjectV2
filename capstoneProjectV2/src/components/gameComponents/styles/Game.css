@@ -1,4 +1,3 @@
-/* ParentChildDivs.css */
 .parent {
   margin: 0 auto;
   width: 57vh;
@@ -7,4 +6,21 @@
   background-color: red;
   background-image: url('../gameAssets/BackgroundSave1_2.png');
   background-size: cover;
+}
+
+#hudDiv {
+  background-color: brown;
+  margin: 0 auto;
+  width: 57vh;
+  height: 20vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#scoreDisplay {
+  background-color: blue;
+  padding: 0.3rem 1rem;
+  border-radius: 0.5rem;
 }

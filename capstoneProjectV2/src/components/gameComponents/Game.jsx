@@ -7,29 +7,25 @@ function Game( {onGameEnd} ) {
     onGameEnd();
   };
 
-  const handlePseudoCaveClick = () => {
-    console.log("pseudo cave clicked");
-  };
-
-  const handleCaveClick = () => {
-    console.log("cave clicked");
-  };
+  const handleCaveClick = (caveNum) => {
+    console.log(`cave ${caveNum} clicked`);
+  };  
 
   const Cave1 = () => {
     return (
-      <div onClick={handleCaveClick} style={{ position: 'absolute', top: '70%', left: '2%', height: '10vh', width: '8vh', opacity: '0.5', backgroundColor: 'purple' }}></div>
+      <div onClick={() => handleCaveClick(1)} style={{ position: 'absolute', top: '70%', left: '2%', height: '10vh', width: '8vh', opacity: '0.5', backgroundColor: 'purple' }}></div>
     );
   }
 
   const Cave2 = () => {
     return (
-      <div onClick={handleCaveClick} style={{ position: 'absolute', top: '55%', left: '12%', height: '9vh', width: '8vh', opacity: '0.5', backgroundColor: 'yellow' }}></div>
+      <div onClick={() => handleCaveClick(2)} style={{ position: 'absolute', top: '55%', left: '12%', height: '9vh', width: '8vh', opacity: '0.5', backgroundColor: 'yellow' }}></div>
     );
   }
 
   const Cave3 = () => {
     return (
-      <div onClick={handleCaveClick} style={{ position: 'absolute', top: '57%', left: '83%', height: '14vh', width: '9vh', opacity: '0.5', backgroundColor: 'red' }}></div>
+      <div onClick={() => handleCaveClick(3)} style={{ position: 'absolute', top: '57%', left: '83%', height: '14vh', width: '9vh', opacity: '0.5', backgroundColor: 'red' }}></div>
     );
   }
 
@@ -39,9 +35,11 @@ function Game( {onGameEnd} ) {
           <Cave1></Cave1>
           <Cave2></Cave2>
           <Cave3></Cave3>
+          <button onClick={handleGameEnd}>NextPage</button>
         </div>
         <div id='hudDiv'>
-          HUD
+          <p>Gold</p>
+          <p id='scoreDisplay'>100</p>
         </div>
       </div>
   );

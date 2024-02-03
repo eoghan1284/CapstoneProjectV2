@@ -3,7 +3,7 @@
   margin: 0 auto;
   width: 57vh;
   height: 80vh;
-  position: relative; /* This allows absolute positioning relative to the parent */
+  position: relative; 
   background-color: red;
   background-image: url('../gameAssets/BackgroundSave1_2.png');
   background-size: cover;
@@ -25,7 +25,7 @@
 #child2 {
   top: 52%;
   left: 12%;
-  background-color: green;
+  background-color: red;
 }
 
 #child3 {

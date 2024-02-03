@@ -7,12 +7,14 @@ function Survey2({ onNext }) {
   const handleNextClick = () => {
     onNext();
   };
-
+ 
+  //below survey is the OCI from Veale.co.uk
   return (
     <div className='page'>
       <div className='Container'>
         <div className='TitleDiv'>
           <h2>Survey (3/3)</h2>
+          <h4>The following statements refer to experiences which many people have in their everday lives. Select the option that best describes how much each experience has distressed or bothered you over the last 2 weeks.</h4>
         </div>
         <div className='InputDiv'>
           <SurveyQuestionV2 question="Unpleasant thoughts come into my mind against my will and I cannot get rid of them" />

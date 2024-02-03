@@ -8,13 +8,14 @@ function Survey2({ onNext }) {
     onNext();
   };
 
-  //below questions are from PHQ-9
+  //below survey is PHQ-9
   //https://www.apa.org/depression-guideline/patient-health-questionnaire.pdf
   return (
     <div className='page'>
       <div className='Container'>
         <div className='TitleDiv'>
           <h2>Survey (2/3)</h2>
+          <h4>Over the past 2 weeks, how often have you been bothered by the following problems?</h4>
         </div>
         <div className='InputDiv'>
           <SurveyQuestionV1 question="Little interest or pleasure in doing things" />

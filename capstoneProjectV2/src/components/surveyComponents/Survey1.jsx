@@ -11,11 +11,13 @@ function Survey1({ onNext }) {
     onNext();
   };
 
+  //below survey is the GAD-7 anxiety survey
   return (
     <div className='page'>
       <div className='Container'>
         <div className='TitleDiv'>
           <h2>Survey (1/3)</h2>
+          <h4>Over the last 2 weeks, how often have you been bothered by the following problems? </h4>
         </div>
         <div className='InputDiv'>
           <SurveyQuestionV1 question = "Feeling nervous, anxious, or on edge"/>

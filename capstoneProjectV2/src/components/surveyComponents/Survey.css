@@ -11,7 +11,7 @@
 .TitleDiv{
     background-color:var(--accent-color);
     text-align: center;
-    padding: 1rem 0rem; /*0 rem for width padding as width will automaticaly be the max of all the divs in the container*/
+    padding: 1.5rem 1rem; /*0 rem for width padding as width will automaticaly be the max of all the divs in the container*/
   }
 
 .InputDiv{

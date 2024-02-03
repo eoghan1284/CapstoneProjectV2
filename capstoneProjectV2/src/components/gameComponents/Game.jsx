@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './styles/Game.css'; 
 
 function Game( {onGameEnd} ) {
@@ -9,7 +9,7 @@ function Game( {onGameEnd} ) {
 
   const winLoss = (prob) => {
     const randomNumber = Math.random();
-    return randomNumber < prob ? 0 : 1;
+    return randomNumber < prob ? -1 : 1;
   };  
 
   const handleCaveClick = (caveNum, result) => {
@@ -17,6 +17,8 @@ function Game( {onGameEnd} ) {
   };  
 
   const probs = [0,1,0.5]
+
+  //to do: make a counter for gold using useState and make it update based on results of winLoss (cave click)
 
   const Cave1 = () => {
     

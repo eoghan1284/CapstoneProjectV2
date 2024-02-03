@@ -8,28 +8,3 @@
   background-image: url('../gameAssets/BackgroundSave1_2.png');
   background-size: cover;
 }
-
-.child {
-  width: 8vh;
-  height: 12vh;
-  opacity: 0.5;
-  position: absolute; /* Absolute positioning inside the parent div */
-}
-
-#child1 {
-  top: 70%;
-  left: 2%;
-  background-color: yellow;
-}
-
-#child2 {
-  top: 52%;
-  left: 12%;
-  background-color: red;
-}
-
-#child3 {
-  top: 58%;
-  left: 85%;
-  background-color: blue;
-}

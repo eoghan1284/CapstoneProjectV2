@@ -25,7 +25,7 @@ function Game( {onGameEnd} ) {
 
   const Cave3 = () => {
     return (
-      <div onClick={() => handleCaveClick(3)} style={{ position: 'absolute', top: '57%', left: '83%', height: '14vh', width: '9vh', opacity: '0.5', backgroundColor: 'red' }}></div>
+      <div onClick={() => handleCaveClick(3)} style={{ position: 'absolute', top: '56%', left: '85%', height: '15vh', width: '8vh', opacity: '0.5', backgroundColor: 'red' }}></div>
     );
   }
 

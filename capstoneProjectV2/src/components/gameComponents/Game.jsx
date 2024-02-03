@@ -34,10 +34,15 @@ function Game( {onGameEnd} ) {
   }
 
   return (
-      <div className="parent">
-        <Cave1></Cave1>
-        <Cave2></Cave2>
-        <Cave3></Cave3>
+      <div id='gamePage'>
+        <div className="parent">
+          <Cave1></Cave1>
+          <Cave2></Cave2>
+          <Cave3></Cave3>
+        </div>
+        <div id='hudDiv'>
+          HUD
+        </div>
       </div>
   );
 }

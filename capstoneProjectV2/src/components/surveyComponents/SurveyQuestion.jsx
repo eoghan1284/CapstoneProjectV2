@@ -1,11 +1,16 @@
 import React from 'react';
 import './SurveyQuestion.css'; 
 
-export const SurveyQuestionV1 = ({ question }) => {
+export const SurveyQuestionV1 = ({ question, onChange }) => {
+
+  const handleChange = (e) => {
+    onChange && onChange(e); // Call the parent's onChange handler
+  };
+
   return (
     <div className="questionContainer">
       <label className='questionLabel' htmlFor="rating-v1">{question}</label>
-      <select id="rating-v1" name="rating-v1" defaultValue="">
+      <select id="rating-v1" name="rating-v1" onChange={handleChange} defaultValue="">
         <option value="" disabled>Please select</option>
         <option value="0">0: Not at all sure</option>
         <option value="1">1: Several days</option>

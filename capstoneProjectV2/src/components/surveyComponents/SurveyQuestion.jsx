@@ -21,11 +21,18 @@ export const SurveyQuestionV1 = ({ question, onChange }) => {
   );
 };
 
-export const SurveyQuestionV2 = ({ question }) => {
+export const SurveyQuestionV2 = ({ question, onChange }) => {
+
+  const handleChange = (e) => {
+    if (onChange) {
+      onChange(e);
+    }
+  };
+
   return (
     <div className="questionContainer">
-      <label className='questionLabel' htmlFor="rating-v2">{question}</label>
-      <select id="rating-v2" name="rating-v2" defaultValue="">
+      <label className='questionLabel' htmlFor={`rating-${question}`}>{question}</label>
+      <select id={`rating-${question}`} name={`rating-${question}`} onChange={handleChange} defaultValue="">
         <option value="" disabled>Please select</option>
         <option value="0">0: Not at all</option>
         <option value="1">1: A little</option>
@@ -36,6 +43,7 @@ export const SurveyQuestionV2 = ({ question }) => {
     </div>
   );
 };
+
 
 
 

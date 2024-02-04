@@ -10,10 +10,15 @@ function Game( {onGameEnd} ) {
   console.log(probs);
   const [showCoin, setShowCoin] = useState({ cave1: false, cave2: false, cave3: false });
   const [showGoblin, setShowGoblin] = useState({ cave1: false, cave2: false, cave3: false });
+  const [showInfo, setShowInfo] = useState(true);
 
 
   const handleGameEnd = () => {
     onGameEnd();
+  };
+
+  const handleOkClick = () => {
+    setShowInfo(false);
   };
 
   const winLoss = (prob) => {
@@ -68,14 +73,14 @@ function Game( {onGameEnd} ) {
 
   return (
     <div id='gamePage'>
-      <div id='infoContainer'> 
+      <div id='infoContainer' style={{ display: showInfo ? 'block' : 'none' }}> 
         <div id='infoTitleDiv'>
           <h2>Info</h2>
         </div>
         <div id='info_Div'>
           <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque ratione, sit ad sapiente a quia in ab maiores aperiam repellat?</p>
           <div id='buttonDiv'>
-            <button id='okayBtn'>Ok</button>
+            <button id='okayBtn' onClick={handleOkClick}>Ok</button>
           </div>
         </div>
       </div>

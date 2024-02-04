@@ -31,12 +31,6 @@ body {
   border-radius: 0.5rem;
 }
 
-#infoTitleDiv {
-  background-color: var(--accent-color);
-  text-align: center;
-  padding: 1rem 0rem
-}
-
 #infoContainer {
   position: absolute;
   z-index: 1;
@@ -44,6 +38,13 @@ body {
   left: 50%;
   transform: translate(-50%,-50%);
   background-color: var(--background-color);
+  width: 37vh;
+}
+
+#infoTitleDiv {
+  background-color: var(--accent-color);
+  text-align: center;
+  padding: 1rem 0rem
 }
 
 #info_Div {

@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import './styles/Game.css'; 
+import goldCoin from './gameAssets/goldCoin.png';
 
 function Game( {onGameEnd} ) {
 
   const [playerGold, setPlayerGold] = useState(100);
   const [probs] = useState([Math.random().toFixed(2), Math.random().toFixed(2), Math.random().toFixed(2)]);
-  console.log(probs)
+  console.log(probs);
+  const [showCoin, setShowCoin] = useState({ cave1: false, cave2: false, cave3: false });
+
 
   const handleGameEnd = () => {
     onGameEnd();
@@ -19,36 +22,44 @@ function Game( {onGameEnd} ) {
   const handleCaveClick = (caveNum, result) => {
     updatePlayerGold(result);
     console.log(`cave ${caveNum} clicked: ${result}`);
+    setShowCoin(prev => ({ ...prev, [`cave${caveNum}`]: true }));
+    setTimeout(() => {
+      setShowCoin(prev => ({ ...prev, [`cave${caveNum}`]: false }));
+    }, 1000);
   };  
   
   const updatePlayerGold = (res) => {
     setPlayerGold(prevCount => prevCount + res);
   };
 
-  const Cave1 = () => {
+  const Cave = ({ number }) => {
+    const styles = {
+      1: { top: '70%', left: '2%', height: '10vh', width: '8vh', backgroundColor: 'purple' },
+      2: { top: '55%', left: '12%', height: '9vh', width: '8vh', backgroundColor: 'yellow' },
+      3: { top: '56%', left: '85%', height: '15vh', width: '8vh', backgroundColor: 'red' },
+    };
+  
+    const caveStyles = {
+      position: 'absolute',
+      opacity: '0.5',
+      ...styles[number], 
+    };
+  
     return (
-      <div onClick={() => handleCaveClick(1, winLoss(probs[0]))} style={{ position: 'absolute', top: '70%', left: '2%', height: '10vh', width: '8vh', opacity: '0.5', backgroundColor: 'purple' }}></div>
+      <div onClick={() => handleCaveClick(number, winLoss(probs[number - 1]))} style={caveStyles}>
+        {showCoin[`cave${number}`] && (
+          <img src={goldCoin} alt="Gold coin" style={{ width: '100%', height: 'auto' }} />
+        )}
+      </div>
     );
-  }
+  };
 
-  const Cave2 = () => {
-    return (
-      <div onClick={() => handleCaveClick(2, winLoss(probs[1]))} style={{ position: 'absolute', top: '55%', left: '12%', height: '9vh', width: '8vh', opacity: '0.5', backgroundColor: 'yellow' }}></div>
-    );
-  }
-
-  const Cave3 = () => {
-    return (
-      <div onClick={() => handleCaveClick(3, winLoss(probs[2]))} style={{ position: 'absolute', top: '56%', left: '85%', height: '15vh', width: '8vh', opacity: '0.5', backgroundColor: 'red' }}></div>
-    );
-  }
-
-return (
+  return (
     <div id='gamePage'>
       <div className="parent">
-        <Cave1></Cave1>
-        <Cave2></Cave2>
-        <Cave3></Cave3>
+        <Cave number={1}></Cave>
+        <Cave number={2}></Cave>
+        <Cave number={3}></Cave>
         <button onClick={handleGameEnd}>NextPage</button>
       </div>
       <div id='hudDiv'>

@@ -36,7 +36,7 @@ function Game( {onGameEnd} ) {
     const styles = {
       1: { top: '70%', left: '2%', height: '10vh', width: '8vh', backgroundColor: 'purple' },
       2: { top: '55%', left: '12%', height: '9vh', width: '8vh', backgroundColor: 'yellow' },
-      3: { top: '56%', left: '85%', height: '15vh', width: '8vh', backgroundColor: 'red' },
+      3: { top: '57%', left: '85%', height: '14vh', width: '8vh', backgroundColor: 'red' },
     };
   
     const caveStyles = {

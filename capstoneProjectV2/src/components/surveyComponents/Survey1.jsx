@@ -11,6 +11,8 @@ function Survey1({ onNext }) {
     q5: '',
     q6: '',
     q7: ''
+
+
   });
 
   // Function to update the state when an option is selected
@@ -24,8 +26,11 @@ function Survey1({ onNext }) {
 
   // Function to calculate the total score
   const calculateTotalScore = () => {
-    return Object.values(responses).reduce((acc, curr) => acc + curr, 0);
+    return Object.values(responses)
+      .map(val => parseInt(val, 10) || 0) // Convert to integer, default to 0 if NaN
+      .reduce((acc, curr) => acc + curr, 0);
   };
+  
 
   // This function will be called when the next button is clicked
   const handleNextClick = () => {
@@ -34,6 +39,7 @@ function Survey1({ onNext }) {
     onNext(); // Proceed to the next step
   };
 
+  
   //below survey is the GAD-7 anxiety survey
   return (
     <div className='page'>

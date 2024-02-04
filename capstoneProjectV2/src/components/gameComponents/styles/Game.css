@@ -1,3 +1,8 @@
+body {
+  background-image: url('../gameAssets/baseBackground.png');
+  background-size: contain;
+}
+
 .parent {
   margin: 0 auto;
   width: 57vh;
@@ -9,7 +14,8 @@
 }
 
 #hudDiv {
-  background-color: brown;
+  background-image: url('../gameAssets/hudBackground.png');
+  background-size:contain;
   margin: 0 auto;
   width: 57vh;
   height: 20vh;

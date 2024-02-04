@@ -68,6 +68,17 @@ function Game( {onGameEnd} ) {
 
   return (
     <div id='gamePage'>
+      <div id='infoContainer'> 
+        <div id='infoTitleDiv'>
+          <h2>Info</h2>
+        </div>
+        <div id='info_Div'>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque ratione, sit ad sapiente a quia in ab maiores aperiam repellat?</p>
+          <div id='buttonDiv'>
+            <button id='okayBtn'>Ok</button>
+          </div>
+        </div>
+      </div>
       <div className="parent">
         <Cave number={1}></Cave>
         <Cave number={2}></Cave>

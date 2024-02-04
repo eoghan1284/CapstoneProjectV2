@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './styles/Game.css'; 
 import goldCoin from './gameAssets/goldCoin.png';
+import goblin from './gameAssets/goblin.png'
 
 function Game( {onGameEnd} ) {
 
@@ -8,6 +9,7 @@ function Game( {onGameEnd} ) {
   const [probs] = useState([Math.random().toFixed(2), Math.random().toFixed(2), Math.random().toFixed(2)]);
   console.log(probs);
   const [showCoin, setShowCoin] = useState({ cave1: false, cave2: false, cave3: false });
+  const [showGoblin, setShowGoblin] = useState({ cave1: false, cave2: false, cave3: false });
 
 
   const handleGameEnd = () => {
@@ -19,14 +21,21 @@ function Game( {onGameEnd} ) {
     return randomNumber > prob ? -1 : 1;
   };  
 
-  const handleCaveClick = (caveNum, result) => {
+  const handleCaveClick = (caveNum) => {
+    const result = winLoss(probs[caveNum - 1]);
     updatePlayerGold(result);
     console.log(`cave ${caveNum} clicked: ${result}`);
-    setShowCoin(prev => ({ ...prev, [`cave${caveNum}`]: true }));
-    setTimeout(() => {
-      setShowCoin(prev => ({ ...prev, [`cave${caveNum}`]: false }));
-    }, 1000);
-  };  
+    if (result === 1) {
+      setShowGoblin({ ...showGoblin, [`cave${caveNum}`]: false })
+      setShowCoin({ ...showCoin, [`cave${caveNum}`]: true });
+      setTimeout(() => setShowCoin({ ...showCoin, [`cave${caveNum}`]: false }), 1000);
+    } else if (result === -1) {
+      setShowCoin({ ...showCoin, [`cave${caveNum}`]: false })
+      setShowGoblin({ ...showGoblin, [`cave${caveNum}`]: true });
+      setTimeout(() => setShowGoblin({ ...showGoblin, [`cave${caveNum}`]: false }), 1000);
+    }
+  };
+
   
   const updatePlayerGold = (res) => {
     setPlayerGold(prevCount => prevCount + res);
@@ -49,6 +58,9 @@ function Game( {onGameEnd} ) {
       <div onClick={() => handleCaveClick(number, winLoss(probs[number - 1]))} style={caveStyles}>
         {showCoin[`cave${number}`] && (
           <img src={goldCoin} alt="Gold coin" style={{ width: '100%', height: 'auto' }} />
+        )}
+        {showGoblin[`cave${number}`] && (
+          <img src={goblin} alt="Goblin" style={{ width: '100%', height: 'auto' }} />
         )}
       </div>
     );

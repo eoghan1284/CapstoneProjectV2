@@ -94,10 +94,9 @@ function Game( {onGameEnd} ) {
         <Cave number={2}></Cave>
         <Cave number={3}></Cave>
         <button onClick={handleGameEnd}>NextPage</button>
+        <p>Trial Num: {trialNum}</p>
       </div>
       <div id='hudDiv'>
-        <p>Trial Num: {trialNum}</p>
-        <p>Gold</p>
         <p id='scoreDisplay'>{playerGold}</p>
       </div>
     </div>

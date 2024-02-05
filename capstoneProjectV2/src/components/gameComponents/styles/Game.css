@@ -54,8 +54,10 @@ body {
 }
 
 #scoreDisplay {
-  background-color: var(--highlight-color);;
-  padding: 0.3rem 1rem;
+  color: gold;
+  background-color: rgb(141, 40, 40);
+  border: solid gold;
+  padding: 0.3rem 2rem;
   border-radius: 0.5rem;
 }
 

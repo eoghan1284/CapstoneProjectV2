@@ -4,20 +4,40 @@ body {
 }
 
 .parent {
-  margin: 0 auto;
-  width: 57vh;
-  height: 80vh;
-  position: relative; 
-  background-color: red;
-  background-image: url('../gameAssets/BackgroundSave1_2.png');
-  background-size: cover;
+  /* Set the max-width to 100% of the viewport width to prevent horizontal scrolling */
+  max-width: 100vw;
+  /* Set height relative to the width to maintain the aspect ratio */
+  height: calc(100vw * (80 / 57));
+  /* Prevent the height from exceeding the viewport height */
+  max-height: 100vh;
+  position: relative;
+  margin: 0 auto; /* Center the div */
+  background-color: red; /* Placeholder for background color */
+  background-image: url('../gameAssets/BackgroundSave1_2.png'); /* Your background image */
+  background-size: contain; /* Make sure the image is fully contained within the div */
+  background-repeat: no-repeat; /* Prevent the image from repeating */
+  background-position: center; /* Center the image within the div */
 }
+
+/* Media query for larger screens where the height would exceed the viewport height */
+@media (min-aspect-ratio: 57/80) {
+  .parent {
+    /* Set width relative to the height to maintain the aspect ratio */
+    width: calc(100vh * (57 / 80));
+    /* Set the max-height to 100% of the viewport height */
+    max-height: 100vh;
+    height: 100vh;
+    /* Reset the max-width as it's now controlled by height */
+    max-width: none;
+  }
+}
+
 
 #hudDiv {
   background-image: url('../gameAssets/hudBackground.png');
   background-size:contain;
   margin: 0 auto;
-  width: 57vh;
+  max-width: 100vw;
   height: 20vh;
   display: flex;
   flex-direction: column;

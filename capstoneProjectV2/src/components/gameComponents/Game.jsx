@@ -11,7 +11,11 @@ function Game( {onGameEnd} ) {
   const [showCoin, setShowCoin] = useState({ cave1: false, cave2: false, cave3: false });
   const [showGoblin, setShowGoblin] = useState({ cave1: false, cave2: false, cave3: false });
   const [showInfo, setShowInfo] = useState(true);
-
+  const [trialNum, updateTrialNum] = useState(0);
+  
+  const incrementTrialNum = () => {
+    updateTrialNum(prevNum => prevNum + 1);
+  };
 
   const handleGameEnd = () => {
     onGameEnd();
@@ -27,6 +31,7 @@ function Game( {onGameEnd} ) {
   };  
 
   const handleCaveClick = (caveNum) => {
+    incrementTrialNum();
     const result = winLoss(probs[caveNum - 1]);
     updatePlayerGold(result);
     console.log(`cave ${caveNum} clicked: ${result}`);
@@ -91,6 +96,7 @@ function Game( {onGameEnd} ) {
         <button onClick={handleGameEnd}>NextPage</button>
       </div>
       <div id='hudDiv'>
+        <p>Trial Num: {trialNum}</p>
         <p>Gold</p>
         <p id='scoreDisplay'>{playerGold}</p>
       </div>

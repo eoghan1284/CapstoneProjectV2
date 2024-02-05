@@ -1,34 +1,28 @@
 body {
+  margin: 0;
+  padding: 0;
   background-image: url('../gameAssets/baseBackground.png');
-  background-size: contain;
+  height: 100vh;
 }
 
 .parent {
-  /* Set the max-width to 100% of the viewport width to prevent horizontal scrolling */
   max-width: 100vw;
-  /* Set height relative to the width to maintain the aspect ratio */
   height: calc(100vw * (80 / 57));
-  /* Prevent the height from exceeding the viewport height */
-  max-height: 100vh;
   position: relative;
-  margin: 0 auto; /* Center the div */
-  background-color: red; /* Placeholder for background color */
-  background-image: url('../gameAssets/BackgroundSave1_2.png'); /* Your background image */
-  background-size: contain; /* Make sure the image is fully contained within the div */
-  background-repeat: no-repeat; /* Prevent the image from repeating */
-  background-position: center; /* Center the image within the div */
+  margin: 0 auto; 
+  background-image: url('../gameAssets/BackgroundSave1_2.png'); 
+  background-size: contain;
+  background-repeat: no-repeat; 
+  background-position: center; 
 }
 
 /* Media query for larger screens where the height would exceed the viewport height */
 @media (min-aspect-ratio: 57/80) {
   .parent {
-    /* Set width relative to the height to maintain the aspect ratio */
     width: calc(100vh * (57 / 80));
-    /* Set the max-height to 100% of the viewport height */
     max-height: 100vh;
     height: 100vh;
-    /* Reset the max-width as it's now controlled by height */
-    max-width: none;
+    max-width: none; /* Reset the max-width as it's now controlled by height */
   }
 }
 
@@ -85,31 +79,3 @@ body {
   padding: .5rem 1rem;
 }
 
-/*
-  return (
-    <div id='gamePage'>
-      <div id='infoContainer' style={{ display: showInfo ? 'block' : 'none' }}> 
-        <div id='infoTitleDiv'>
-          <h2>Info</h2>
-        </div>
-        <div id='info_Div'>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque ratione, sit ad sapiente a quia in ab maiores aperiam repellat?</p>
-          <div id='buttonDiv'>
-            <button id='okayBtn' onClick={handleOkClick}>Ok</button>
-          </div>
-        </div>
-      </div>
-      <div className="parent">
-        <Cave number={1}></Cave>
-        <Cave number={2}></Cave>
-        <Cave number={3}></Cave>
-        <button onClick={handleGameEnd}>NextPage</button>
-      </div>
-      <div id='hudDiv'>
-        <p>Trial Num: {trialNum}</p>
-        <p>Gold</p>
-        <p id='scoreDisplay'>{playerGold}</p>
-      </div>
-    </div>
-  );
-*/

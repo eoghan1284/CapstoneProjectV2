@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('../gameAssets/baseBackground.png');
+  background-image: url('../gameAssets/hudBackground.png');
   height: 100vh;
 }
 
@@ -42,8 +42,8 @@ body {
 
 
 #hudDiv {
-  background-image: url('../gameAssets/hudBackground.png');
-  background-size:contain;
+  background-image: url('../gameAssets/baseBackground.png');
+  background-size:cover;
   margin: 0 auto;
   max-width: 100vw;
   height: 20vh;

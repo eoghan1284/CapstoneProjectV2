@@ -53,14 +53,14 @@ function Game( {onGameEnd} ) {
 
   const Cave = ({ number }) => {
     const styles = {
-      1: { top: '70%', left: '2%', height: '10vh', width: '8vh', backgroundColor: 'purple' },
-      2: { top: '55%', left: '12%', height: '9vh', width: '8vh', backgroundColor: 'yellow' },
-      3: { top: '57%', left: '85%', height: '14vh', width: '8vh', backgroundColor: 'red' },
+      1: { top: '70%', left: '2%', height: '10vh', width: '8vh', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', justifyContent: 'center'},
+      2: { top: '55%', left: '12%', height: '9vh', width: '8vh', backgroundColor: 'transparent'},
+      3: { top: '57%', left: '85%', height: '14vh', width: '8vh', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', justifyContent: 'center'},
     };
   
     const caveStyles = {
       position: 'absolute',
-      opacity: '0.5',
+      opacity: '1',
       ...styles[number], 
     };
   
@@ -97,7 +97,10 @@ function Game( {onGameEnd} ) {
         <p>Trial Num: {trialNum}</p>
       </div>
       <div id='hudDiv'>
-        <p id='scoreDisplay'>{playerGold}</p>
+        <div id='displayDiv'>
+          <img src={goldCoin} alt="Gold Coin"/>
+          <span id="coinCount">{playerGold}</span>
+        </div>
       </div>
     </div>
   );

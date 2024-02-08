@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import './styles/Game.css'; 
-import goldCoin from './gameAssets/goldCoin.png';
-import goblin from './gameAssets/goblin.png'
+import goldCoin from './gameAssets/goldCoin.png'
+import goodGoblin from './gameAssets/goodGoblin.png'
+import evilGoblin from './gameAssets/evilGoblin.png'
+
 
 function Game( {onGameEnd} ) {
 
@@ -67,10 +69,10 @@ function Game( {onGameEnd} ) {
     return (
       <div onClick={() => handleCaveClick(number, winLoss(probs[number - 1]))} style={caveStyles}>
         {showCoin[`cave${number}`] && (
-          <img src={goldCoin} alt="Gold coin" style={{ width: '100%', height: 'auto' }} />
+          <img src={goodGoblin} alt="good Goblin" style={{ width: '100%', height: 'auto' }} />
         )}
         {showGoblin[`cave${number}`] && (
-          <img src={goblin} alt="Goblin" style={{ width: '100%', height: 'auto' }} />
+          <img src={evilGoblin} alt="evil Goblin" style={{ width: '100%', height: 'auto' }} />
         )}
       </div>
     );
@@ -83,7 +85,7 @@ function Game( {onGameEnd} ) {
           <h2>Info</h2>
         </div>
         <div id='info_Div'>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque ratione, sit ad sapiente a quia in ab maiores aperiam repellat?</p>
+          <p></p>
           <div id='buttonDiv'>
             <button id='okayBtn' onClick={handleOkClick}>Ok</button>
           </div>

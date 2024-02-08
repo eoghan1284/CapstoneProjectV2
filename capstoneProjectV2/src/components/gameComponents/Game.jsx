@@ -82,12 +82,15 @@ function Game( {onGameEnd} ) {
     <div id='gamePage'>
       <div id='infoContainer' style={{ display: showInfo ? 'block' : 'none' }}> 
         <div id='infoTitleDiv'>
-          <h2>Info</h2>
+          <h2>Game Time!</h2>
         </div>
         <div id='info_Div'>
-          <p></p>
+          <p>In this enchanted realm, three mysterious caves await. Your quest is to gather as much gold as possible by venturing into these caves by clicking on their entrances. <br /><br />
+            All the caves are home to a both a friendly goblin who will give you a gold coin, but also a malevolent goblin who will take your coins if he catches you. <br /><br />
+            Not all caves offer equal luck; observe the patterns of your encounters to deduce which cave's malevolent goblin is easiest to sneak past. Your bravery and strategy will determine your wealth in this adventure of risk and reward.
+          </p>
           <div id='buttonDiv'>
-            <button id='okayBtn' onClick={handleOkClick}>Ok</button>
+            <button id='okayBtn' onClick={handleOkClick}>Play</button>
           </div>
         </div>
       </div>

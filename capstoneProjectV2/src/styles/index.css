@@ -36,10 +36,6 @@ button, input, textarea {
   padding: 0.5em 1em;
 }
 
-button:hover, input[type="submit"]:hover {
-  background-color: var(--highlight-color);
-}
-
 /* Responsive images */
 img {
   max-width: 100%;

@@ -11,13 +11,12 @@ function Survey1({ onNext }) {
     q5: '',
     q6: '',
     q7: ''
-
-
   });
 
   // Function to update the state when an option is selected
-  const handleSelectChange = (value, questionKey) => {
-    const numericalValue = parseInt(value, 10);
+  const handleSelectChange = (event, questionKey) => {
+    // Ensure we are working with the event and extracting value directly from the event
+    const numericalValue = parseInt(event.target.value, 10);
     setResponses(prevResponses => ({
       ...prevResponses,
       [questionKey]: numericalValue
@@ -26,11 +25,11 @@ function Survey1({ onNext }) {
 
   // Function to calculate the total score
   const calculateTotalScore = () => {
-    return Object.values(responses)
-      .map(val => parseInt(val, 10) || 0) // Convert to integer, default to 0 if NaN
-      .reduce((acc, curr) => acc + curr, 0);
+    return Object.values(responses).reduce((acc, curr) => acc + curr, 0);
   };
-  
+
+  // Check if all questions have been answered
+  const allQuestionsAnswered = Object.values(responses).every(value => value !== '');
 
   // This function will be called when the next button is clicked
   const handleNextClick = () => {
@@ -39,39 +38,26 @@ function Survey1({ onNext }) {
     onNext(); // Proceed to the next step
   };
 
-  
   //below survey is the GAD-7 anxiety survey
   return (
     <div className='page'>
       <div className='Container'>
         <div className='TitleDiv'>
           <h2>Survey (1/3)</h2>
-          <h4>Over the last 2 weeks, how often have you been bothered by the following problems? </h4>
+          <h4>Over the last 2 weeks, how often have you been bothered by the following problems?</h4>
         </div>
         <div className='InputDiv'>
-        <SurveyQuestionV1 question="Feeling nervous, anxious, or on edge" 
-          onChange={(e) => handleSelectChange(e.target.value, 'q1')}
-        />
-        <SurveyQuestionV1 question="Not being able to stop or control worrying" 
-          onChange={(e) => handleSelectChange(e.target.value, 'q2')}
-        />
-        <SurveyQuestionV1 question="Worrying too much about different things" 
-          onChange={(e) => handleSelectChange(e.target.value, 'q3')}
-        />
-        <SurveyQuestionV1 question="Trouble relaxing" 
-          onChange={(e) => handleSelectChange(e.target.value, 'q4')}
-        />
-        <SurveyQuestionV1 question="Being so restless that it is hard to sit still" 
-          onChange={(e) => handleSelectChange(e.target.value, 'q5')}
-        />
-        <SurveyQuestionV1 question="Becoming easily annoyed or irritable" 
-          onChange={(e) => handleSelectChange(e.target.value, 'q6')}
-        />
-        <SurveyQuestionV1 question="Feeling afraid as if something awful might happen" 
-          onChange={(e) => handleSelectChange(e.target.value, 'q7')}
-/>
+          {/* Update the onChange handlers to correctly pass the event and question key */}
+          <SurveyQuestionV1 question="Feeling nervous, anxious, or on edge" onChange={(e) => handleSelectChange(e, 'q1')} />
+          <SurveyQuestionV1 question="Not being able to stop or control worrying" onChange={(e) => handleSelectChange(e, 'q2')} />
+          <SurveyQuestionV1 question="Worrying too much about different things" onChange={(e) => handleSelectChange(e, 'q3')} />
+          <SurveyQuestionV1 question="Trouble relaxing" onChange={(e) => handleSelectChange(e, 'q4')} />
+          <SurveyQuestionV1 question="Being so restless that it is hard to sit still" onChange={(e) => handleSelectChange(e, 'q5')} />
+          <SurveyQuestionV1 question="Becoming easily annoyed or irritable" onChange={(e) => handleSelectChange(e, 'q6')} />
+          <SurveyQuestionV1 question="Feeling afraid as if something awful might happen" onChange={(e) => handleSelectChange(e, 'q7')} />
           <div className='ButtonDiv'>
-            <button onClick={handleNextClick}>Next</button>
+            {/* Disable the Next button if not all questions have been answered */}
+            <button onClick={handleNextClick} /*disabled={!allQuestionsAnswered}*/>Next</button>
           </div>
         </div>
       </div>
@@ -80,6 +66,3 @@ function Survey1({ onNext }) {
 }
 
 export default Survey1;
-
-
-

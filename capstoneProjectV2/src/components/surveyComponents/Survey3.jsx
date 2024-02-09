@@ -64,6 +64,8 @@ function Survey2({ onNext }) {
       .reduce((acc, curr) => acc + curr, 0);
   };
 
+  const allQuestionsAnswered = Object.values(responses).every(value => value !== '');
+
   const handleNextClick = () => {
     const totalScore = calculateTotalScore();
     console.log('Survey3 total:', totalScore);
@@ -123,7 +125,7 @@ function Survey2({ onNext }) {
           <SurveyQuestionV2 question="I wash my hands more often or longer than necessary" onChange={(e) => handleSelectChange(e, 'q42')}/>
 
           <div className='ButtonDiv'>
-            <button onClick={handleNextClick}>Next</button>
+            <button onClick={handleNextClick} /*disabled={!allQuestionsAnswered}*/>Next</button>
           </div>
         </div>
       </div>

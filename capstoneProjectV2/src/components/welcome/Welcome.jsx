@@ -2,14 +2,16 @@ import React, { useState } from 'react';
 import './Welcome.css';
 
 const Welcome = ({ onStart }) => {
-
   const [gender, setGender] = useState('');
+
   const handleGenderChange = (event) => {
-    setGender(event.target.value);
+    const selectedGender = event.target.value;
+    setGender(selectedGender);
   };
 
   const handleStart = () => {
-    onStart(); //can pass gender here
+    console.log("Gender selected:", gender); // Use gender from state
+    onStart(gender); // Pass gender as argument if needed
   };
 
   return (
@@ -24,13 +26,13 @@ const Welcome = ({ onStart }) => {
               Please enter your gender and press Start to begin.
             </p>
           </div>
-          <select id='genderInput' name='Gender' value={gender} onChange={handleGenderChange} defaultValue="">
+          <select id='genderInput' name='Gender' value={gender} onChange={handleGenderChange}>
             <option value="" disabled>Select your gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
           <div>
-            <button onClick={handleStart}>Start</button>
+            <button onClick={handleStart} disabled={!gender}>Start</button>
           </div>
         </div>
       </div>

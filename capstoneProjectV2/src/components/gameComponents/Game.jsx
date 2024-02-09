@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/Game.css'; 
 import goldCoin from './gameAssets/goldCoin.png'
 import goodGoblin from './gameAssets/goodGoblin.png'
@@ -9,12 +9,15 @@ function Game( {onGameEnd} ) {
 
   const [playerGold, setPlayerGold] = useState(100);
   const [probs] = useState([Math.random().toFixed(2), Math.random().toFixed(2), Math.random().toFixed(2)]);
-  console.log(probs);
   const [showCoin, setShowCoin] = useState({ cave1: false, cave2: false, cave3: false });
   const [showGoblin, setShowGoblin] = useState({ cave1: false, cave2: false, cave3: false });
   const [showInfo, setShowInfo] = useState(true);
   const [trialNum, updateTrialNum] = useState(0);
   
+  useEffect(() => {
+    console.log(probs);
+  }, [probs]); 
+
   const incrementTrialNum = () => {
     updateTrialNum(prevNum => prevNum + 1);
   };

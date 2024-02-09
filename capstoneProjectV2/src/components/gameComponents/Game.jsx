@@ -23,6 +23,7 @@ function Game( {onGameEnd} ) {
   };
 
   const handleGameEnd = () => {
+    console.log(playerGold);
     onGameEnd();
   };
 

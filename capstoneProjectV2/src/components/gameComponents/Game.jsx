@@ -26,6 +26,13 @@ function Game( {onGameEnd} ) {
     onGameEnd();
   };
 
+  useEffect(() => {
+    if (trialNum >= 10) {
+      handleGameEnd();
+    }
+  }, [trialNum, handleGameEnd]); // Add handleGameEnd to dependencies if it's stable or remove if it causes re-render issues
+
+
   const handleOkClick = () => {
     setShowInfo(false);
   };

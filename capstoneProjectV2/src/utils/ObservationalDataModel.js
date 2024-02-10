@@ -21,6 +21,10 @@ const dataSchema = mongoose.Schema({
     outcomes: {
         type: [Number], // an array of length 100 with 0s and 1s denoting failure(0) or success(1)
         required: [true, "enter outcomes"]
+    },
+    finalGold: {
+        type: Number, //playerGold at end
+        required: [true, "enter finalGold"]
     }
 },
 {

@@ -1,6 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import MainComponents from './components/MainComponents';
 import './styles/App.css';
+
+const App = () => {
+
+  const [gender, setGender] = useState('');
+  const [playerGold, setPlayerGold] = useState(100);
+
+  return <MainComponents 
+  gender={gender} setGender={setGender} 
+  playerGold={playerGold} setPlayerGold={setPlayerGold} 
+  />;
+};
+
+export default App;
+
 
 /*
 const submitData = () => {
@@ -30,8 +44,3 @@ const submitData = () => {
     });
 };
 */
-const App = () => {
-  return <MainComponents />;
-};
-
-export default App;

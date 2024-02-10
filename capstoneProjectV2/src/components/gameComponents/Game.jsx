@@ -5,9 +5,8 @@ import goodGoblin from './gameAssets/goodGoblin.png'
 import evilGoblin from './gameAssets/evilGoblin.png'
 
 
-function Game( {onGameEnd} ) {
+function Game( {playerGold, setPlayerGold, onGameEnd} ) {
 
-  const [playerGold, setPlayerGold] = useState(100);
   const [probs] = useState([Math.random().toFixed(2), Math.random().toFixed(2), Math.random().toFixed(2)]);
   const [showCoin, setShowCoin] = useState({ cave1: false, cave2: false, cave3: false });
   const [showGoblin, setShowGoblin] = useState({ cave1: false, cave2: false, cave3: false });

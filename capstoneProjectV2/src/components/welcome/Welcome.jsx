@@ -1,9 +1,7 @@
 import React, { useState } from 'react';
 import './Welcome.css';
 
-const Welcome = ({ onStart }) => {
-  const [gender, setGender] = useState('');
-
+const Welcome = ({ gender, setGender, onStart }) => {
   const handleGenderChange = (event) => {
     const selectedGender = event.target.value;
     setGender(selectedGender);

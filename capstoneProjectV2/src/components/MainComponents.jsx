@@ -7,7 +7,7 @@ import Game from './gameComponents/Game.jsx';
 import Finish from './finish/Finish.jsx';
 import '../styles/App.css';
 
-const MainComponents = () => {
+const MainComponents = ({ gender, setGender, playerGold, setPlayerGold }) => {
   const [currentStep, setCurrentStep] = useState('Welcome');
 
   useEffect(() => {
@@ -24,15 +24,15 @@ const MainComponents = () => {
   const renderStep = () => {
     switch (currentStep) {
       case 'Welcome':
-        return <Welcome onStart={() => handleNext('Survey1')} />;
+        return <Welcome onStart={() => handleNext('Survey1')} gender={gender} setGender={setGender}/>;
       case 'Survey1':
         return <Survey1 onNext={() => handleNext('Survey2')} />;
       case 'Survey2':
         return <Survey2 onNext={() => handleNext('Survey3')} />;
       case 'Survey3':
-        return <Survey3 onNext={() => handleNext('Game')} />;
+        return <Survey3 onNext={() => handleNext('Game')}/>;
       case 'Game':
-        return <Game onGameEnd={() => handleNext('Finish')} />;
+        return <Game onGameEnd={() => handleNext('Finish')} playerGold={playerGold} setPlayerGold={setPlayerGold}/>;
       case 'Finish':
         return <Finish/>;
       default:

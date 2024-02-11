@@ -6,6 +6,7 @@ const App = () => {
 
   const [gender, setGender] = useState('');
   const [playerGold, setPlayerGold] = useState(100);
+  const [probs] = useState([Math.random().toFixed(2), Math.random().toFixed(2), Math.random().toFixed(2)]);
 
   const [total1, setTotal1] = useState(0);
   const [total2, setTotal2] = useState(0);
@@ -13,14 +14,18 @@ const App = () => {
 
   const handleFinish = () => {
     console.log("Finished");
+    console.log(gender)
     console.log(total1);
     console.log(total2);
     console.log(total3);
+    console.log(probs);
+    console.log(playerGold);
   };
 
   return <MainComponents 
   gender={gender} setGender={setGender} 
   playerGold={playerGold} setPlayerGold={setPlayerGold} 
+  probs = {probs}
   total1={total1} setTotal1={setTotal1} 
   total2={total2} setTotal2={setTotal2}
   total3={total3} setTotal3={setTotal3}

@@ -8,7 +8,6 @@ const Welcome = ({ gender, setGender, onStart }) => {
   };
 
   const handleStart = () => {
-    console.log("Gender selected:", gender); // Use gender from state
     onStart(gender); // Pass gender as argument if needed
   };
 

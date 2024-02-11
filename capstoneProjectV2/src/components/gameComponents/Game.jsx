@@ -5,9 +5,8 @@ import goodGoblin from './gameAssets/goodGoblin.png'
 import evilGoblin from './gameAssets/evilGoblin.png'
 
 
-function Game( {playerGold, setPlayerGold, onGameEnd} ) {
+function Game( {probs, playerGold, setPlayerGold, onGameEnd} ) {
 
-  const [probs] = useState([Math.random().toFixed(2), Math.random().toFixed(2), Math.random().toFixed(2)]);
   const [showCoin, setShowCoin] = useState({ cave1: false, cave2: false, cave3: false });
   const [showGoblin, setShowGoblin] = useState({ cave1: false, cave2: false, cave3: false });
   const [showInfo, setShowInfo] = useState(true);
@@ -22,7 +21,6 @@ function Game( {playerGold, setPlayerGold, onGameEnd} ) {
   };
 
   const handleGameEnd = () => {
-    console.log(playerGold);
     onGameEnd();
   };
 
@@ -46,7 +44,6 @@ function Game( {playerGold, setPlayerGold, onGameEnd} ) {
     incrementTrialNum();
     const result = winLoss(probs[caveNum - 1]);
     updatePlayerGold(result);
-    console.log(`cave ${caveNum} clicked: ${result}`);
     if (result === 1) {
       setShowGoblin({ ...showGoblin, [`cave${caveNum}`]: false })
       setShowCoin({ ...showCoin, [`cave${caveNum}`]: true });

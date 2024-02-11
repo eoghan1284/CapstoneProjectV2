@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Survey.css'; 
 import {SurveyQuestionV1} from './SurveyQuestion.jsx';
 
-function Survey1({ onNext }) { 
+function Survey1({ onNext, total1, setTotal1}) { 
   const [responses, setResponses] = useState({
     q1: '',
     q2: '',
@@ -25,8 +25,13 @@ function Survey1({ onNext }) {
 
   // Function to calculate the total score
   const calculateTotalScore = () => {
-    return Object.values(responses).reduce((acc, curr) => acc + curr, 0);
+    return Object.values(responses).reduce((acc, curr) => {
+      // If curr is an empty string, treat it as 0
+      const currValue = curr === '' ? 0 : parseInt(curr, 10);
+      return acc + currValue;
+    }, 0);
   };
+  
 
   // Check if all questions have been answered
   const allQuestionsAnswered = Object.values(responses).every(value => value !== '');
@@ -34,7 +39,8 @@ function Survey1({ onNext }) {
   // This function will be called when the next button is clicked
   const handleNextClick = () => {
     const totalScore = calculateTotalScore();
-    console.log('Survey1 total:', totalScore);
+    // Update the total using setTotal1 
+    setTotal1(totalScore);
     onNext(); // Proceed to the next step
   };
 

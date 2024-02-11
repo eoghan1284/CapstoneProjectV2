@@ -7,9 +7,16 @@ const App = () => {
   const [gender, setGender] = useState('');
   const [playerGold, setPlayerGold] = useState(100);
 
+  const [total1, setTotal1] = useState(0);
+  const [total2, setTotal2] = useState(0);
+  const [total3, setTotal3] = useState(0);
+
   return <MainComponents 
   gender={gender} setGender={setGender} 
   playerGold={playerGold} setPlayerGold={setPlayerGold} 
+  total1={total1} setTotal1={setTotal1} 
+  total2={total2} setTotal2={setTotal2}
+  total3={total3} setTotal3={setTotal3}
   />;
 };
 

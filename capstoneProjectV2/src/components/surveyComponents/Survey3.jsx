@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Survey.css'; // Adjust the path as needed for your project structure
 import { SurveyQuestionV2 } from './SurveyQuestion.jsx';
 
-function Survey2({ onNext }) {
+function Survey2({ onNext, total3, setTotal3 }) {
   const [responses, setResponses] = useState({
     q1: '',
     q2: '',
@@ -68,7 +68,8 @@ function Survey2({ onNext }) {
 
   const handleNextClick = () => {
     const totalScore = calculateTotalScore();
-    console.log('Survey3 total:', totalScore);
+    // Update the total using setTotal1 
+    setTotal3(totalScore);
     onNext(); // Proceed to the next step
   };
  

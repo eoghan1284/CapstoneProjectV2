@@ -7,7 +7,6 @@ const App = () => {
   const [gender, setGender] = useState('');
   const [playerGold, setPlayerGold] = useState(100);
   const [probs] = useState([Math.random().toFixed(2), Math.random().toFixed(2), Math.random().toFixed(2)]);
-
   const [total1, setTotal1] = useState(0);
   const [total2, setTotal2] = useState(0);
   const [total3, setTotal3] = useState(0);

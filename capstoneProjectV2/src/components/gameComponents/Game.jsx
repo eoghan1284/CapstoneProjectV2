@@ -12,10 +12,6 @@ function Game( {probs, playerGold, setPlayerGold, onGameEnd} ) {
   const [showInfo, setShowInfo] = useState(true);
   const [trialNum, updateTrialNum] = useState(0);
   
-  useEffect(() => {
-    console.log(probs);
-  }, [probs]); 
-
   const incrementTrialNum = () => {
     updateTrialNum(prevNum => prevNum + 1);
   };

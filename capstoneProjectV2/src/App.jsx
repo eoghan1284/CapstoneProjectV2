@@ -13,45 +13,32 @@ const App = () => {
 
   const handleFinish = () => {
     console.log("Finished");
-    console.log(gender)
+    console.log(gender);
     console.log(total1);
     console.log(total2);
     console.log(total3);
     console.log(probs);
     console.log(playerGold);
+    submitData();
   };
 
-  return <MainComponents 
-  gender={gender} setGender={setGender} 
-  playerGold={playerGold} setPlayerGold={setPlayerGold} 
-  probs = {probs}
-  total1={total1} setTotal1={setTotal1} 
-  total2={total2} setTotal2={setTotal2}
-  total3={total3} setTotal3={setTotal3}
-  onFinished={handleFinish}
-  />;
-};
+  const submitData = () => {
+    const userData = {
+      survey1Total: total1,
+      survey2Total: total2,
+      survey3Total: total3,
+      probabilities: probs,
+      finalGold: playerGold
+    };
 
-export default App;
-
-
-/*
-const submitData = () => {
-  const userData = {
-    username: username,
-    probabilities: probs,
-    choices: choices, // Add 100 choices
-    outcomes: outcomes // Add 100 outcomes
-  };
-
-  //send POST request to server
-  fetch('http://localhost:3000/observation', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(userData)
-  })
+    // Send POST request to server
+    fetch('http://localhost:3000/observation', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    })
     .then(response => response.json())
     .then(data => {
       // Handle server response
@@ -59,7 +46,25 @@ const submitData = () => {
     })
     .catch(error => {
       console.error('Error storing obs:', error);
-      return;
     });
+  };
+
+  return (
+    <MainComponents 
+      gender={gender} 
+      setGender={setGender} 
+      playerGold={playerGold} 
+      setPlayerGold={setPlayerGold} 
+      probs={probs}
+      total1={total1} 
+      setTotal1={setTotal1} 
+      total2={total2} 
+      setTotal2={setTotal2}
+      total3={total3} 
+      setTotal3={setTotal3}
+      onFinished={handleFinish}
+    />
+  );
 };
-*/
+
+export default App;

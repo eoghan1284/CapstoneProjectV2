@@ -11,12 +11,20 @@ const App = () => {
   const [total2, setTotal2] = useState(0);
   const [total3, setTotal3] = useState(0);
 
+  const handleFinish = () => {
+    console.log("Finished");
+    console.log(total1);
+    console.log(total2);
+    console.log(total3);
+  };
+
   return <MainComponents 
   gender={gender} setGender={setGender} 
   playerGold={playerGold} setPlayerGold={setPlayerGold} 
   total1={total1} setTotal1={setTotal1} 
   total2={total2} setTotal2={setTotal2}
   total3={total3} setTotal3={setTotal3}
+  onFinished={handleFinish}
   />;
 };
 

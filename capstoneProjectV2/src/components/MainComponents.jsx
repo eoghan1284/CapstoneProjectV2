@@ -7,7 +7,7 @@ import Game from './gameComponents/Game.jsx';
 import Finish from './finish/Finish.jsx';
 import '../styles/App.css';
 
-const MainComponents = ({ gender, setGender, playerGold, setPlayerGold, total1, setTotal1, total2, setTotal2, total3, setTotal3}) => {
+const MainComponents = ({ gender, setGender, playerGold, setPlayerGold, total1, setTotal1, total2, setTotal2, total3, setTotal3, onFinished}) => {
   const [currentStep, setCurrentStep] = useState('Welcome');
 
   useEffect(() => {
@@ -34,9 +34,7 @@ const MainComponents = ({ gender, setGender, playerGold, setPlayerGold, total1, 
       case 'Game':
         return <Game onGameEnd={() => handleNext('Finish')} playerGold={playerGold} setPlayerGold={setPlayerGold}/>;
       case 'Finish':
-        console.log(total1);
-        console.log(total2);
-        console.log(total3);
+        onFinished();
         return <Finish/>;
       default:
         return <div>Invalid step</div>;

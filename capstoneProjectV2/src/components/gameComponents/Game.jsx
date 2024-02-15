@@ -21,7 +21,7 @@ function Game( {probs, playerGold, setPlayerGold, onGameEnd} ) {
   };
 
   useEffect(() => {
-    if (trialNum >= 10) {
+    if (trialNum >= 100) {
       handleGameEnd();
     }
   }, [trialNum, handleGameEnd]); // Add handleGameEnd to dependencies if it's stable or remove if it causes re-render issues
@@ -40,16 +40,40 @@ function Game( {probs, playerGold, setPlayerGold, onGameEnd} ) {
     incrementTrialNum();
     const result = winLoss(probs[caveNum - 1]);
     updatePlayerGold(result);
+  
+    // Clear any existing timeouts for all caves to prevent overlapping images
+    clearTimeout(showCoin.timeout);
+    clearTimeout(showGoblin.timeout);
+  
+    // Reset both showCoin and showGoblin states for all caves
+    const resetState = {
+      cave1: false,
+      cave2: false,
+      cave3: false,
+      timeout: null, // Add a timeout property to manage visibility timeout
+    };
+  
     if (result === 1) {
-      setShowGoblin({ ...showGoblin, [`cave${caveNum}`]: false })
-      setShowCoin({ ...showCoin, [`cave${caveNum}`]: true });
-      setTimeout(() => setShowCoin({ ...showCoin, [`cave${caveNum}`]: false }), 1000);
+      // Show coin in the clicked cave and set a timeout to hide it
+      setShowCoin(prev => ({
+        ...resetState,
+        [`cave${caveNum}`]: true,
+        timeout: setTimeout(() => {
+          setShowCoin(prev => ({ ...prev, [`cave${caveNum}`]: false }));
+        }, 1000),
+      }));
     } else if (result === -1) {
-      setShowCoin({ ...showCoin, [`cave${caveNum}`]: false })
-      setShowGoblin({ ...showGoblin, [`cave${caveNum}`]: true });
-      setTimeout(() => setShowGoblin({ ...showGoblin, [`cave${caveNum}`]: false }), 1000);
+      // Show goblin in the clicked cave and set a timeout to hide it
+      setShowGoblin(prev => ({
+        ...resetState,
+        [`cave${caveNum}`]: true,
+        timeout: setTimeout(() => {
+          setShowGoblin(prev => ({ ...prev, [`cave${caveNum}`]: false }));
+        }, 1000),
+      }));
     }
   };
+  
 
   
   const updatePlayerGold = (res) => {

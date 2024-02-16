@@ -18,9 +18,13 @@ const dataSchema = mongoose.Schema({
         type: [Number], // an array of 3 numbers eg 0.3, 0.5, 0.2
         required: [true, "enter probabilities"]
     },
+    choices: {
+        type: [Number], // stores caveNums
+        required: [true, "enter choices"]
+    },
     results: {
         type: [Number], // -1 denotes a loss, 1 denotes a win
-        required: [true, "enter probabilities"]
+        required: [true, "enter results"]
     },
     finalGold: {
         type: Number, //playerGold at end

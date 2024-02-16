@@ -7,7 +7,7 @@ import Game from './gameComponents/Game.jsx';
 import Finish from './finish/Finish.jsx';
 import '../styles/App.css';
 
-const MainComponents = ({ gender, setGender, probs, playerGold, setPlayerGold, total1, setTotal1, total2, setTotal2, total3, setTotal3, onFinished}) => {
+const MainComponents = ({ gender, setGender, probs, playerGold, setPlayerGold, total1, setTotal1, total2, setTotal2, total3, setTotal3, results, setResults, onFinished}) => {
   const [currentStep, setCurrentStep] = useState('Welcome');
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const MainComponents = ({ gender, setGender, probs, playerGold, setPlayerGold, t
       case 'Survey3':
         return <Survey3 onNext={() => handleNext('Game')} total3={total3} setTotal3={setTotal3}/>;
       case 'Game':
-        return <Game onGameEnd={() => handleNext('Finish')} probs={probs} playerGold={playerGold} setPlayerGold={setPlayerGold}/>;
+        return <Game onGameEnd={() => handleNext('Finish')} probs={probs} playerGold={playerGold} setPlayerGold={setPlayerGold} results={results} setResults={setResults}/>;
       case 'Finish':
         onFinished();
         return <Finish/>;

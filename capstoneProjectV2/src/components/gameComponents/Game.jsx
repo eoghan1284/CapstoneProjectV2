@@ -5,12 +5,18 @@ import goodGoblin from './gameAssets/goodGoblin.png'
 import evilGoblin from './gameAssets/evilGoblin.png'
 
 
-function Game( {probs, playerGold, setPlayerGold, onGameEnd} ) {
+function Game( {probs, playerGold, setPlayerGold, results, setResults, onGameEnd} ) {
 
   const [showCoin, setShowCoin] = useState({ cave1: false, cave2: false, cave3: false });
   const [showGoblin, setShowGoblin] = useState({ cave1: false, cave2: false, cave3: false });
   const [showInfo, setShowInfo] = useState(true);
   const [trialNum, updateTrialNum] = useState(0);
+  
+
+  const addResult = (newResult) => {
+    setResults([...results, newResult]);
+  };
+  
   
   const incrementTrialNum = () => {
     updateTrialNum(prevNum => prevNum + 1);
@@ -21,7 +27,7 @@ function Game( {probs, playerGold, setPlayerGold, onGameEnd} ) {
   };
 
   useEffect(() => {
-    if (trialNum >= 100) {
+    if (trialNum >= 10) {
       handleGameEnd();
     }
   }, [trialNum, handleGameEnd]); // Add handleGameEnd to dependencies if it's stable or remove if it causes re-render issues
@@ -33,7 +39,9 @@ function Game( {probs, playerGold, setPlayerGold, onGameEnd} ) {
 
   const winLoss = (prob) => {
     const randomNumber = Math.random();
-    return randomNumber > prob ? -1 : 1;
+    const res = randomNumber > prob ? -1 : 1;
+    addResult(res);
+    return res;
   };  
 
   const handleCaveClick = (caveNum) => {

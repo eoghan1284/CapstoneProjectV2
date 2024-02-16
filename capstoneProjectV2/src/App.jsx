@@ -10,6 +10,7 @@ const App = () => {
   const [total1, setTotal1] = useState(0);
   const [total2, setTotal2] = useState(0);
   const [total3, setTotal3] = useState(0);
+  const [results, setResults] = useState([]);
 
   const handleFinish = () => {
     console.log("Finished");
@@ -19,6 +20,7 @@ const App = () => {
     console.log(total3);
     console.log(probs);
     console.log(playerGold);
+    console.log(results);
     submitData();
   };
 
@@ -28,6 +30,7 @@ const App = () => {
       survey2Total: total2,
       survey3Total: total3,
       probabilities: probs,
+      results: results,
       finalGold: playerGold
     };
 
@@ -62,6 +65,8 @@ const App = () => {
       setTotal2={setTotal2}
       total3={total3} 
       setTotal3={setTotal3}
+      results={results} 
+      setResults={setResults}
       onFinished={handleFinish}
     />
   );

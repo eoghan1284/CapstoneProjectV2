@@ -2,11 +2,27 @@ import React, { useState } from 'react';
 import MainComponents from './components/MainComponents';
 import './styles/App.css';
 
-const App = () => {
+const shuffleArray = (array) => {
+  let currentIndex = array.length, randomIndex;
 
+  // While there remain elements to shuffle
+  while (currentIndex !== 0) {
+
+    // Pick a remaining element
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex--;
+
+    // And swap it with the current element
+    [array[currentIndex], array[randomIndex]] = [
+      array[randomIndex], array[currentIndex]];
+  }
+  return array;
+};
+
+const App = () => {
   const [gender, setGender] = useState('');
   const [playerGold, setPlayerGold] = useState(100);
-  const [probs] = useState([Math.random().toFixed(2), Math.random().toFixed(2), Math.random().toFixed(2)]);
+  const [probs, setProbs] = useState(() => shuffleArray([0.3, 0.5, 0.7]));
   const [total1, setTotal1] = useState(0);
   const [total2, setTotal2] = useState(0);
   const [total3, setTotal3] = useState(0);

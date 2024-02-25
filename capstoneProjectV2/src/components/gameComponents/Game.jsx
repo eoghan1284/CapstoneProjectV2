@@ -31,7 +31,7 @@ function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, 
   };
 
   useEffect(() => {
-    if (trialNum >= 10) {
+    if (trialNum >= 60) {
       handleGameEnd();
     }
   }, [trialNum, handleGameEnd]); // Add handleGameEnd to dependencies if it's stable or remove if it causes re-render issues
@@ -138,8 +138,7 @@ function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, 
         <Cave number={1}></Cave>
         <Cave number={2}></Cave>
         <Cave number={3}></Cave>
-        <button onClick={handleGameEnd}>NextPage</button>
-        <p>Trial Num: {trialNum}</p>
+
       </div>
       <div id='hudDiv'>
         <div id='displayDiv'>

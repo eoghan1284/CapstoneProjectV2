@@ -22,7 +22,7 @@ const shuffleArray = (array) => {
 const App = () => {
   const [gender, setGender] = useState('');
   const [playerGold, setPlayerGold] = useState(100);
-  const [probs, setProbs] = useState(() => shuffleArray([0.3, 0.5, 0.7]));
+  const [probs, setProbs] = useState(() => shuffleArray([0.25, 0.5, 0.75]));
   const [total1, setTotal1] = useState(0);
   const [total2, setTotal2] = useState(0);
   const [total3, setTotal3] = useState(0);

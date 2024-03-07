@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Survey.css'; // Adjust the path as needed for your project structure
 import { SurveyQuestionV1 } from './SurveyQuestion.jsx';
 
-function Survey2({ onNext, total2, setTotal2}) {
+function Survey2({ onNext, survey2Answers, setSurvey2Answers, total2, setTotal2}) {
   const [responses, setResponses] = useState({
     q1: '',
     q2: '',
@@ -24,8 +24,13 @@ function Survey2({ onNext, total2, setTotal2}) {
     }));
   };
 
+  const recordSurveyAnswers = () => {
+    const answersArray = Object.keys(responses).map(key => parseInt(responses[key], 10));
+    setSurvey2Answers(answersArray);
+  };
 
   const calculateTotalScore = () => {
+    recordSurveyAnswers();
     return Object.values(responses)
       .map(val => parseInt(val, 10) || 0) // Convert to integer, default to 0 if NaN
       .reduce((acc, curr) => acc + curr, 0);
@@ -63,7 +68,7 @@ function Survey2({ onNext, total2, setTotal2}) {
           <SurveyQuestionV1 question="Thoughts that you would be better off dead, or of hurting yourself" onChange={(e) => handleSelectChange(e.target.value, 'q9')}/>
           
           <div className='ButtonDiv'>
-            <button onClick={handleNextClick} /*disabled={!allQuestionsAnswered}*/>Next</button>
+            <button onClick={handleNextClick} disabled={!allQuestionsAnswered}>Next</button>
           </div>
         </div>
       </div>

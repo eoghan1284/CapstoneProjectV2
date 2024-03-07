@@ -49,6 +49,8 @@ const App = () => {
     const userData = {
       gender: gender,
       survey1Answers: survey1Answers,
+      survey2Answers: survey2Answers,
+      survey3Answers: survey3Answers,
       survey1Total: total1,
       survey2Total: total2,
       survey3Total: total3,
@@ -84,7 +86,11 @@ const App = () => {
       setPlayerGold={setPlayerGold} 
       probs={probs}
       survey1Answers={survey1Answers}
-      setSurvey1Answers={setSurvey1Answers}s
+      setSurvey1Answers={setSurvey1Answers}
+      survey2Answers={survey2Answers}
+      setSurvey2Answers={setSurvey2Answers}
+      survey3Answers={survey3Answers}
+      setSurvey3Answers={setSurvey3Answers}
       total1={total1} 
       setTotal1={setTotal1} 
       total2={total2} 

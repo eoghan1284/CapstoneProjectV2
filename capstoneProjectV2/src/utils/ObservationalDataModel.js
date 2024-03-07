@@ -10,6 +10,14 @@ const dataSchema = mongoose.Schema({
         type: [Number], 
         required: [true, "enter survey 1 answers"]
     },
+    survey2Answers: {
+        type: [Number], 
+        required: [true, "enter survey 2 answers"]
+    },
+    survey3Answers: {
+        type: [Number], 
+        required: [true, "enter survey 3 answers"]
+    },
     survey1Total: {
         type: Number, 
         required: [true, "enter survey 1 total"]

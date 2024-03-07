@@ -63,7 +63,7 @@ function Survey2({ onNext, total2, setTotal2}) {
           <SurveyQuestionV1 question="Thoughts that you would be better off dead, or of hurting yourself" onChange={(e) => handleSelectChange(e.target.value, 'q9')}/>
           
           <div className='ButtonDiv'>
-            <button onClick={handleNextClick} disabled={!allQuestionsAnswered}>Next</button>
+            <button onClick={handleNextClick} /*disabled={!allQuestionsAnswered}*/>Next</button>
           </div>
         </div>
       </div>

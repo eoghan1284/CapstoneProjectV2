@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Survey.css'; 
 import {SurveyQuestionV1} from './SurveyQuestion.jsx';
 
-function Survey1({ onNext, total1, setTotal1}) { 
+function Survey1({ onNext, survey1Answers, setSurvey1Answers, total1, setTotal1}) { 
   const [responses, setResponses] = useState({
     q1: '',
     q2: '',
@@ -23,8 +23,15 @@ function Survey1({ onNext, total1, setTotal1}) {
     }));
   };
 
+  const recordSurveyAnswers = () => {
+    // Assuming survey1Answers has been initialized with useState
+    const answersArray = Object.keys(responses).map(key => parseInt(responses[key], 10));
+    setSurvey1Answers(answersArray);
+  };
+
   // Function to calculate the total score
   const calculateTotalScore = () => {
+    recordSurveyAnswers();
     return Object.values(responses).reduce((acc, curr) => {
       // If curr is an empty string, treat it as 0
       const currValue = curr === '' ? 0 : parseInt(curr, 10);

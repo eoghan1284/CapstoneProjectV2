@@ -23,6 +23,9 @@ const App = () => {
   const [gender, setGender] = useState('');
   const [playerGold, setPlayerGold] = useState(100);
   const [probs, setProbs] = useState(() => shuffleArray([0.25, 0.5, 0.75]));
+  const [survey1Answers, setSurvey1Answers] = useState(Array(7).fill(0));
+  const [survey2Answers, setSurvey2Answers] = useState(Array(9).fill(0));
+  const [survey3Answers, setSurvey3Answers] = useState(Array(42).fill(0));
   const [total1, setTotal1] = useState(0);
   const [total2, setTotal2] = useState(0);
   const [total3, setTotal3] = useState(0);
@@ -44,6 +47,8 @@ const App = () => {
 
   const submitData = () => {
     const userData = {
+      gender: gender,
+      survey1Answers: survey1Answers,
       survey1Total: total1,
       survey2Total: total2,
       survey3Total: total3,
@@ -78,6 +83,8 @@ const App = () => {
       playerGold={playerGold} 
       setPlayerGold={setPlayerGold} 
       probs={probs}
+      survey1Answers={survey1Answers}
+      setSurvey1Answers={setSurvey1Answers}s
       total1={total1} 
       setTotal1={setTotal1} 
       total2={total2} 

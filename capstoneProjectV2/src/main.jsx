@@ -9,4 +9,3 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   </React.StrictMode>,
 )
 
-/*This is the working version with no individual question recordings*/

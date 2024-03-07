@@ -2,6 +2,14 @@ import mongoose from 'mongoose';
 
 
 const dataSchema = mongoose.Schema({
+    gender: {
+        type: String, 
+        required: [true, "enter gender"]
+    },
+    survey1Answers: {
+        type: [Number], 
+        required: [true, "enter survey 1 answers"]
+    },
     survey1Total: {
         type: Number, 
         required: [true, "enter survey 1 total"]
@@ -33,7 +41,7 @@ const dataSchema = mongoose.Schema({
 },
 {
     timestamps: false,
-    collection: 'Observations'
+    collection: 'Observations2'
 });
 
 const Observation = mongoose.model('Observation', dataSchema);

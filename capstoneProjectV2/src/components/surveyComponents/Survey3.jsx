@@ -126,7 +126,7 @@ function Survey2({ onNext, total3, setTotal3 }) {
           <SurveyQuestionV2 question="I wash my hands more often or longer than necessary" onChange={(e) => handleSelectChange(e, 'q42')}/>
 
           <div className='ButtonDiv'>
-            <button onClick={handleNextClick} disabled={!allQuestionsAnswered}>Next</button>
+            <button onClick={handleNextClick} /*disabled={!allQuestionsAnswered}*/>Next</button>
           </div>
         </div>
       </div>

@@ -14,11 +14,11 @@ async function exportToCSV() {
     await client.connect();
     console.log('Connected to MongoDB');
     const db = client.db('CapstoneDB');
-    const collection = db.collection('Observations');
+    const collection = db.collection('Observations2');
     const data = await collection.find({}).toArray();
     const json2csvParser = new Parser();
     const csv = json2csvParser.parse(data);
-    writeFileSync('output.csv', csv);
+    writeFileSync('output2.csv', csv);
     console.log('CSV file created successfully');
   } catch (err) {
     console.error('Error while exporting data:', err);

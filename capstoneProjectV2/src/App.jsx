@@ -21,6 +21,7 @@ const shuffleArray = (array) => {
 
 const App = () => {
   const [gender, setGender] = useState('');
+  const [age, setAge] = useState('');
   const [playerGold, setPlayerGold] = useState(100);
   const [probs, setProbs] = useState(() => shuffleArray([0.3, 0.5, 0.7]));
   const [survey1Answers, setSurvey1Answers] = useState(Array(7).fill(0));
@@ -35,6 +36,7 @@ const App = () => {
   const handleFinish = () => {
     console.log("Finished");
     console.log(gender);
+    console.log(age);
     console.log(total1);
     console.log(total2);
     console.log(total3);
@@ -48,6 +50,7 @@ const App = () => {
   const submitData = () => {
     const userData = {
       gender: gender,
+      age:age,
       survey1Answers: survey1Answers,
       survey2Answers: survey2Answers,
       survey3Answers: survey3Answers,
@@ -82,6 +85,8 @@ const App = () => {
     <MainComponents 
       gender={gender} 
       setGender={setGender} 
+      age={age}
+      setAge={setAge}
       playerGold={playerGold} 
       setPlayerGold={setPlayerGold} 
       probs={probs}

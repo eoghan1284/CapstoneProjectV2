@@ -6,6 +6,10 @@ const dataSchema = mongoose.Schema({
         type: String, 
         required: [true, "enter gender"]
     },
+    age: {
+        type: Number, 
+        required: [true, "enter age"]
+    },
     survey1Answers: {
         type: [Number], 
         required: [true, "enter survey 1 answers"]

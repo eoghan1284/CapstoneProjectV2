@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import './Welcome.css';
 
-const Welcome = ({ gender, setGender, onStart }) => {
+const Welcome = ({ gender, setGender, age, setAge, onStart }) => {
   const handleGenderChange = (event) => {
     const selectedGender = event.target.value;
     setGender(selectedGender);
+  };
+
+  const handleAgeChange = (event) => {
+    const selectedAge = event.target.value;
+    setAge(selectedAge);
   };
 
   const handleStart = () => {
@@ -27,6 +32,12 @@ const Welcome = ({ gender, setGender, onStart }) => {
             <option value="" disabled>Select your gender</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
+          </select>
+          <select id='ageInput' name='Age' value={age} onChange={handleAgeChange}>
+          <option value="" disabled>Select your age</option>
+  {Array.from({ length: 125 }, (_, i) => (
+    <option key={i} value={i + 1}>{i + 1}</option>
+  ))}
           </select>
           <div>
             <button onClick={handleStart} disabled={!gender}>Start</button>

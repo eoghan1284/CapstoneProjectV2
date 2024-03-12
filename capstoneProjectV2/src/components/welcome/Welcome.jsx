@@ -25,7 +25,7 @@ const Welcome = ({ gender, setGender, age, setAge, onStart }) => {
         <div id='inputDiv'>
           <div id='expDiv'>
             <p>Over the course of this short activity, you will fill out 3 short surveys and then play a game. <br />
-              Please enter your gender and press Start to begin.
+              Please enter your gender and age, then press Start to begin.
             </p>
           </div>
           <select id='genderInput' name='Gender' value={gender} onChange={handleGenderChange}>
@@ -40,7 +40,7 @@ const Welcome = ({ gender, setGender, age, setAge, onStart }) => {
   ))}
           </select>
           <div>
-            <button onClick={handleStart} disabled={!gender}>Start</button>
+            <button onClick={handleStart} disabled={!gender || !age}>Start</button>
           </div>
         </div>
       </div>

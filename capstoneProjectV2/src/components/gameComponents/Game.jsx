@@ -126,7 +126,7 @@ function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, 
         </div>
         <div id='info_Div'>
           <p>In this enchanted realm, three mysterious caves await. Your quest is to gather as much gold as possible by venturing into these caves by clicking on their entrances. <br /><br />
-            All the caves are home to a both a friendly goblin who will give you a gold coin, but also a malevolent goblin who will take your coins if he catches you. <br /><br />
+            All the caves are home to a both a friendly goblin who will give you a gold coin, and also a malevolent goblin who will take a coin if he catches you. <br /><br />
             Not all caves offer equal luck; observe the patterns of your encounters to deduce which cave's malevolent goblin is easiest to avoid. Your bravery and strategy will determine your wealth in this adventure of risk and reward.
           </p>
           <div id='buttonDiv'>

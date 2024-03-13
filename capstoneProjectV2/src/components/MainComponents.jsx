@@ -17,6 +17,13 @@ const MainComponents = ({ gender, setGender, age, setAge, probs, playerGold, set
     });
   }, [currentStep]); 
 
+  useEffect(() => {
+    if (currentStep === 'Finish') {
+      onFinished();
+    }
+  }, [currentStep, onFinished]); // This effect listens for changes to currentStep and calls onFinished when it reaches 'Finish'
+
+
   const handleNext = (nextStep) => {
     setCurrentStep(nextStep);
   };
@@ -34,7 +41,6 @@ const MainComponents = ({ gender, setGender, age, setAge, probs, playerGold, set
       case 'Game':
         return <Game onGameEnd={() => handleNext('Finish')} probs={probs} playerGold={playerGold} setPlayerGold={setPlayerGold} choices={choices} setChoices={setChoices} results={results} setResults={setResults}/>;
       case 'Finish':
-        onFinished();
         return <Finish/>;
       default:
         return <div>Invalid step</div>;

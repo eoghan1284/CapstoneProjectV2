@@ -38,7 +38,7 @@ const Welcome = ({ gender, setGender, age, setAge, onStart }) => {
             {Array.from({ length: 125 }, (_, i) => (<option key={i} value={i + 1}>{i + 1}</option>))} 
           </select>
           <div>
-            <button onClick={handleStart} disabled={!gender || !age}>Start</button>
+            <button onClick={handleStart} disabled={!gender || age === ''}>Start</button>
           </div>
         </div>
       </div>

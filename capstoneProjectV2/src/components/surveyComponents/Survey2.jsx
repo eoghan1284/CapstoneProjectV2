@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Survey.css'; // Adjust the path as needed for your project structure
+import './Survey.css'; 
 import { SurveyQuestionV1 } from './SurveyQuestion.jsx';
 
 function Survey2({ onNext, survey2Answers, setSurvey2Answers, total2, setTotal2}) {
@@ -32,7 +32,7 @@ function Survey2({ onNext, survey2Answers, setSurvey2Answers, total2, setTotal2}
   const calculateTotalScore = () => {
     recordSurveyAnswers();
     return Object.values(responses)
-      .map(val => parseInt(val, 10) || 0) // Convert to integer, default to 0 if NaN
+      .map(val => parseInt(val, 10) || 0) 
       .reduce((acc, curr) => acc + curr, 0);
   };
   
@@ -40,9 +40,8 @@ function Survey2({ onNext, survey2Answers, setSurvey2Answers, total2, setTotal2}
 
   const handleNextClick = () => {
     const totalScore = calculateTotalScore();
-    // Update the total using setTotal1 
     setTotal2(totalScore);
-    onNext(); // Proceed to the next step
+    onNext(); 
   };
 
   //below survey is PHQ-9
@@ -66,7 +65,6 @@ function Survey2({ onNext, survey2Answers, setSurvey2Answers, total2, setTotal2}
           <SurveyQuestionV1 question="Trouble concentrating on things, such as reading the newspaper or watching television" onChange={(e) => handleSelectChange(e.target.value, 'q7')}/>
           <SurveyQuestionV1 question="Moving or speaking so slowly that other people could have noticed. Or the opposite being so figety or restless that you have been moving around a lot more than usual" onChange={(e) => handleSelectChange(e.target.value, 'q8')}/>
           <SurveyQuestionV1 question="Thoughts that you would be better off dead, or of hurting yourself" onChange={(e) => handleSelectChange(e.target.value, 'q9')}/>
-          
           <div className='ButtonDiv'>
             <button onClick={handleNextClick} disabled={!allQuestionsAnswered}>Next</button>
           </div>

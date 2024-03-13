@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Survey.css'; // Adjust the path as needed for your project structure
+import './Survey.css'; 
 import { SurveyQuestionV2 } from './SurveyQuestion.jsx';
 
 function Survey2({ onNext, survey3Answers, setSurvey3Answers, total3, setTotal3 }) {
@@ -65,17 +65,16 @@ function Survey2({ onNext, survey3Answers, setSurvey3Answers, total3, setTotal3 
   const calculateTotalScore = () => {
     recordSurveyAnswers();
     return Object.values(responses)
-      .map(val => parseInt(val, 10) || 0) // Convert to integer, default to 0 if NaN
+      .map(val => parseInt(val, 10) || 0) 
       .reduce((acc, curr) => acc + curr, 0);
   };
 
   const allQuestionsAnswered = Object.values(responses).every(value => value !== '');
 
   const handleNextClick = () => {
-    const totalScore = calculateTotalScore();
-    // Update the total using setTotal1 
+    const totalScore = calculateTotalScore(); 
     setTotal3(totalScore);
-    onNext(); // Proceed to the next step
+    onNext();
   };
  
   //below survey is the OCI from Veale.co.uk
@@ -129,7 +128,6 @@ function Survey2({ onNext, survey3Answers, setSurvey3Answers, total3, setTotal3 
           <SurveyQuestionV2 question="I repeatedly check anything which might cause a fire" onChange={(e) => handleSelectChange(e, 'q40')}/>
           <SurveyQuestionV2 question="Even when I do something very carefully I feel that it is not quite right" onChange={(e) => handleSelectChange(e, 'q41')}/>
           <SurveyQuestionV2 question="I wash my hands more often or longer than necessary" onChange={(e) => handleSelectChange(e, 'q42')}/>
-
           <div className='ButtonDiv'>
             <button onClick={handleNextClick} disabled={!allQuestionsAnswered}>Next</button>
           </div>

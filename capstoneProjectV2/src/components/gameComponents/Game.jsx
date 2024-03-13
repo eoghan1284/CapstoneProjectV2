@@ -7,8 +7,8 @@ import evilGoblin from './gameAssets/evilGoblin.png'
 
 function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, setResults, onGameEnd} ) {
 
-  const [showCoin, setShowCoin] = useState({ cave1: false, cave2: false, cave3: false });
-  const [showGoblin, setShowGoblin] = useState({ cave1: false, cave2: false, cave3: false });
+  const [ShowGoodGoblin, setShowGoodGoblin] = useState({ cave1: false, cave2: false, cave3: false });
+  const [ShowBadGoblin, setShowBadGoblin] = useState({ cave1: false, cave2: false, cave3: false });
   const [showInfo, setShowInfo] = useState(true);
   const [trialNum, updateTrialNum] = useState(0);
   
@@ -34,7 +34,7 @@ function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, 
     if (trialNum >= 80) {
       handleGameEnd();
     }
-  }, [trialNum, handleGameEnd]); // Add handleGameEnd to dependencies if it's stable or remove if it causes re-render issues
+  }, [trialNum, handleGameEnd]); 
 
 
   const handleOkClick = () => {
@@ -55,10 +55,9 @@ function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, 
     updatePlayerGold(result);
   
     // Clear any existing timeouts for all caves to prevent overlapping images
-    clearTimeout(showCoin.timeout);
-    clearTimeout(showGoblin.timeout);
+    clearTimeout(ShowGoodGoblin.timeout);
+    clearTimeout(ShowBadGoblin.timeout);
   
-    // Reset both showCoin and showGoblin states for all caves
     const resetState = {
       cave1: false,
       cave2: false,
@@ -67,21 +66,19 @@ function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, 
     };
   
     if (result === 1) {
-      // Show coin in the clicked cave and set a timeout to hide it
-      setShowCoin(prev => ({
+      setShowGoodGoblin(prev => ({
         ...resetState,
         [`cave${caveNum}`]: true,
         timeout: setTimeout(() => {
-          setShowCoin(prev => ({ ...prev, [`cave${caveNum}`]: false }));
+          setShowGoodGoblin(prev => ({ ...prev, [`cave${caveNum}`]: false }));
         }, 1000),
       }));
     } else if (result === -1) {
-      // Show goblin in the clicked cave and set a timeout to hide it
-      setShowGoblin(prev => ({
+      setShowBadGoblin(prev => ({
         ...resetState,
         [`cave${caveNum}`]: true,
         timeout: setTimeout(() => {
-          setShowGoblin(prev => ({ ...prev, [`cave${caveNum}`]: false }));
+          setShowBadGoblin(prev => ({ ...prev, [`cave${caveNum}`]: false }));
         }, 1000),
       }));
     }
@@ -108,10 +105,10 @@ function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, 
   
     return (
       <div onClick={() => handleCaveClick(number, winLoss(probs[number - 1]))} style={caveStyles}>
-        {showCoin[`cave${number}`] && (
+        {ShowGoodGoblin[`cave${number}`] && (
           <img src={goodGoblin} alt="good Goblin" style={{ width: '100%', height: 'auto' }} />
         )}
-        {showGoblin[`cave${number}`] && (
+        {ShowBadGoblin[`cave${number}`] && (
           <img src={evilGoblin} alt="evil Goblin" style={{ width: '100%', height: 'auto' }} />
         )}
       </div>

@@ -4,15 +4,9 @@ import './styles/App.css';
 
 const shuffleArray = (array) => {
   let currentIndex = array.length, randomIndex;
-
-  // While there remain elements to shuffle
   while (currentIndex !== 0) {
-
-    // Pick a remaining element
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex--;
-
-    // And swap it with the current element
     [array[currentIndex], array[randomIndex]] = [
       array[randomIndex], array[currentIndex]];
   }
@@ -73,11 +67,10 @@ const App = () => {
     })
     .then(response => response.json())
     .then(data => {
-      // Handle server response
-      console.log('Obs stored:' + data);
+      console.log('Observation stored:' + data);
     })
     .catch(error => {
-      console.error('Error storing obs:', error);
+      console.error('Error storing observation:', error);
     });
   };
 

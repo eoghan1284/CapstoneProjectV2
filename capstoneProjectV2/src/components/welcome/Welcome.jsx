@@ -13,7 +13,7 @@ const Welcome = ({ gender, setGender, age, setAge, onStart }) => {
   };
 
   const handleStart = () => {
-    onStart(gender); // Pass gender as argument if needed
+    onStart(gender);
   };
 
   return (
@@ -34,10 +34,8 @@ const Welcome = ({ gender, setGender, age, setAge, onStart }) => {
             <option value="female">Female</option>
           </select>
           <select id='ageInput' name='Age' value={age} onChange={handleAgeChange}>
-          <option value="" disabled>Select your age</option>
-  {Array.from({ length: 125 }, (_, i) => (
-    <option key={i} value={i + 1}>{i + 1}</option>
-  ))}
+            <option value="" disabled>Select your age</option>
+            {Array.from({ length: 125 }, (_, i) => (<option key={i} value={i + 1}>{i + 1}</option>))} 
           </select>
           <div>
             <button onClick={handleStart} disabled={!gender || !age}>Start</button>

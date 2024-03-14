@@ -27,7 +27,6 @@ function Survey1({ onNext, survey1Answers, setSurvey1Answers, total1, setTotal1}
   };
 
   const calculateTotalScore = () => {
-    recordSurveyAnswers();
     return Object.values(responses).reduce((acc, curr) => {
       const currValue = curr === '' ? 0 : parseInt(curr, 10);
       return acc + currValue;
@@ -37,6 +36,7 @@ function Survey1({ onNext, survey1Answers, setSurvey1Answers, total1, setTotal1}
   const allQuestionsAnswered = Object.values(responses).every(value => value !== '');
 
   const handleNextClick = () => {
+    recordSurveyAnswers();
     const totalScore = calculateTotalScore();
     setTotal1(totalScore);
     onNext(); 

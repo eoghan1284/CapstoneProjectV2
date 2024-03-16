@@ -72,9 +72,15 @@ function Survey2({ onNext, survey3Answers, setSurvey3Answers, total3, setTotal3 
   const allQuestionsAnswered = Object.values(responses).every(value => value !== '');
 
   const handleNextClick = () => {
-    const totalScore = calculateTotalScore(); 
-    setTotal3(totalScore);
-    onNext();
+    if(!allQuestionsAnswered){
+      document.getElementById("warningDiv").style.display = "block";
+
+    }
+    else{
+      const totalScore = calculateTotalScore(); 
+      setTotal3(totalScore);
+      onNext();
+    }
   };
  
   //below survey is the OCI from Veale.co.uk
@@ -128,8 +134,11 @@ function Survey2({ onNext, survey3Answers, setSurvey3Answers, total3, setTotal3 
           <SurveyQuestionV2 question="I repeatedly check anything which might cause a fire" onChange={(e) => handleSelectChange(e, 'q40')}/>
           <SurveyQuestionV2 question="Even when I do something very carefully I feel that it is not quite right" onChange={(e) => handleSelectChange(e, 'q41')}/>
           <SurveyQuestionV2 question="I wash my hands more often or longer than necessary" onChange={(e) => handleSelectChange(e, 'q42')}/>
+          <div id='warningDiv'>
+            Please answer all questions before continuing 
+          </div>
           <div className='ButtonDiv'>
-            <button onClick={handleNextClick} disabled={!allQuestionsAnswered}>Next</button>
+            <button onClick={handleNextClick}>Next</button>
           </div>
         </div>
       </div>

@@ -33,3 +33,13 @@
 #survey3Div_test h1{
     color: blue;
 }
+
+#warningDiv{
+  display: none;
+  color: red;
+  padding-bottom: 1.5rem;
+}
+
+.ButtonDiv button:active {
+  background-color: var(--highlight-color); 
+}

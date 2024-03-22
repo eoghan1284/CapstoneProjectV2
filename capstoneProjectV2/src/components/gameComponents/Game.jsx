@@ -7,8 +7,8 @@ import evilGoblin from './gameAssets/evilGoblin.png'
 
 function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, setResults, onGameEnd} ) {
 
-  const [ShowGoodGoblin, setShowGoodGoblin] = useState({ cave1: false, cave2: false, cave3: false });
-  const [ShowBadGoblin, setShowBadGoblin] = useState({ cave1: false, cave2: false, cave3: false });
+  const [ShowGoodGoblin, setShowGoodGoblin] = useState({ bandit1: false, bandit2: false, bandit3: false });
+  const [ShowBadGoblin, setShowBadGoblin] = useState({ bandit1: false, bandit2: false, bandit3: false });
   const [showInfo, setShowInfo] = useState(true);
   const [trialNum, updateTrialNum] = useState(0);
   
@@ -48,37 +48,37 @@ function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, 
     return res;
   };  
 
-  const handleCaveClick = (caveNum) => {
-    addChoice(caveNum);
+  const handleBanditClick = (banditNum) => {
+    addChoice(banditNum);
     incrementTrialNum();
-    const result = winLoss(probs[caveNum - 1]);
+    const result = winLoss(probs[banditNum - 1]);
     updatePlayerGold(result);
   
-    // Clear any existing timeouts for all caves to prevent overlapping images
+    // Clear any existing timeouts for all bandits to prevent overlapping images
     clearTimeout(ShowGoodGoblin.timeout);
     clearTimeout(ShowBadGoblin.timeout);
   
     const resetState = {
-      cave1: false,
-      cave2: false,
-      cave3: false,
+      bandit1: false,
+      bandit2: false,
+      bandit3: false,
       timeout: null, // Add a timeout property to manage visibility timeout
     };
   
     if (result === 1) {
       setShowGoodGoblin(prev => ({
         ...resetState,
-        [`cave${caveNum}`]: true,
+        [`bandit${banditNum}`]: true,
         timeout: setTimeout(() => {
-          setShowGoodGoblin(prev => ({ ...prev, [`cave${caveNum}`]: false }));
+          setShowGoodGoblin(prev => ({ ...prev, [`bandit${banditNum}`]: false }));
         }, 1000),
       }));
     } else if (result === -1) {
       setShowBadGoblin(prev => ({
         ...resetState,
-        [`cave${caveNum}`]: true,
+        [`bandit${banditNum}`]: true,
         timeout: setTimeout(() => {
-          setShowBadGoblin(prev => ({ ...prev, [`cave${caveNum}`]: false }));
+          setShowBadGoblin(prev => ({ ...prev, [`bandit${banditNum}`]: false }));
         }, 1000),
       }));
     }
@@ -90,25 +90,25 @@ function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, 
     setPlayerGold(prevCount => prevCount + res);
   };
 
-  const Cave = ({ number }) => {
+  const Bandit = ({ number }) => {
     const styles = {
       1: { top: '70%', left: '2%', height: '10vh', width: '8vh', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', justifyContent: 'center'},
       2: { top: '55%', left: '12%', height: '9vh', width: '8vh', backgroundColor: 'transparent'},
       3: { top: '57%', left: '85%', height: '14vh', width: '8vh', backgroundColor: 'transparent', display: 'flex', flexDirection: 'column', justifyContent: 'center'},
     };
   
-    const caveStyles = {
+    const banditStyles = {
       position: 'absolute',
       opacity: '1',
       ...styles[number], 
     };
   
     return (
-      <div onClick={() => handleCaveClick(number, winLoss(probs[number - 1]))} style={caveStyles}>
-        {ShowGoodGoblin[`cave${number}`] && (
+      <div onClick={() => handleBanditClick(number, winLoss(probs[number - 1]))} style={banditStyles}>
+        {ShowGoodGoblin[`bandit${number}`] && (
           <img src={goodGoblin} alt="good Goblin" style={{ width: '100%', height: 'auto' }} />
         )}
-        {ShowBadGoblin[`cave${number}`] && (
+        {ShowBadGoblin[`bandit${number}`] && (
           <img src={evilGoblin} alt="evil Goblin" style={{ width: '100%', height: 'auto' }} />
         )}
       </div>
@@ -123,8 +123,8 @@ function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, 
         </div>
         <div id='info_Div'>
           <p>In this enchanted realm, three mysterious caves await. Your quest is to gather as much gold as possible by venturing into these caves by clicking on their entrances. <br /><br />
-            All the caves are home to a both a friendly goblin who will give you a gold coin, and also a malevolent goblin who will take a coin if he catches you. <br /><br />
-            Not all caves offer equal luck; observe the patterns of your encounters to deduce which cave's malevolent goblin is easiest to avoid. Your bravery and strategy will determine your wealth in this adventure of risk and reward.
+            Each cave is home to both a friendly goblin who will give you a gold coin, and also a malevolent goblin who will take a coin if he catches you before you finds you before the friendly goblin. <br /><br />
+            Not all caves offer equal luck; observe the patterns of your encounters to deduce which bandit's malevolent goblin is easiest to avoid. Your bravery and strategy will determine your wealth in this adventure of risk and reward.
           </p>
           <div id='buttonDiv'>
             <button id='okayBtn' onClick={handleOkClick}>Play</button>
@@ -132,9 +132,9 @@ function Game( {probs, playerGold, setPlayerGold, choices, setChoices, results, 
         </div>
       </div>
       <div className="parent">
-        <Cave number={1}></Cave>
-        <Cave number={2}></Cave>
-        <Cave number={3}></Cave>
+        <Bandit number={1}></Bandit>
+        <Bandit number={2}></Bandit>
+        <Bandit number={3}></Bandit>
 
       </div>
       <div id='hudDiv'>
